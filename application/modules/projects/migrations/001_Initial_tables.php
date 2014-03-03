@@ -37,7 +37,7 @@ class Migration_Initial_tables extends Migration
         $this->load->model('permission_model');
 
         $this->dbforge->drop_table('briefs');
-        $this->permission_model->delete_by_name('Bonfire.Projects.View');
+        $this->permission_model->delete_by_name('Bonfire.ProjectBriefs.View');
     }
 
     //--------------------------------------------------------------------

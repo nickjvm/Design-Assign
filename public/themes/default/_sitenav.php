@@ -17,7 +17,9 @@
                     <li><a <?php echo check_method_arguments('page','who-we-are'); ?> href="<?php echo site_url(); ?>pages/page/who-we-are">Who we are</a></li>
                     <li><a <?php echo check_method_arguments('page','hows-it-work'); ?> href="<?php echo site_url(); ?>pages/page/hows-it-work">How's it work?</a></li>
                     <li><a <?php echo check_class_arguments('projects',''); ?> href="<?php echo site_url(); ?>projects">Find a project</a></li>
-                    <li><a <?php echo check_method_arguments('create',''); ?> href="<?php echo site_url(); ?>projects/create">Post a project</a></li>
+                    <?php if(!$this->auth->is_logged_in() || has_permission('Bonfire.ProjectBriefs.Create')) { ?>
+                     <li><a <?php echo check_method_arguments('create',''); ?> href="<?php echo site_url(); ?>projects/create">Post a project</a></li>
+                    <?php } ?>
                     <?php if (empty($current_user)) :?>
                         <li><a href="<?php echo site_url(LOGIN_URL); ?>">Sign In</a></li>
                     <?php else: ?>

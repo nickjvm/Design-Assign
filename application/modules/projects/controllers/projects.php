@@ -47,6 +47,11 @@ class Projects extends Front_Controller
 
         public function create()
         {
+          if(!$this->auth->is_logged_in()) {
+            Template::set_message('Please log in to post a project',  'error');
+            redirect('login','location',301);
+
+          }
            if ($this->input->post('submit'))
            {
                 $usermeta = $this->user_model->find_meta_for($this->current_user->id);
