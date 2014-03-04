@@ -1497,6 +1497,37 @@ nav a:hover {
 nav li a.active {
   color: #1b75bb;
 }
+.relative {
+  position: relative;
+}
+#user-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  font-size: 1em;
+}
+#user-nav a {
+  text-transform: inherit;
+  border: 1px dotted #666666;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+}
+#user-nav a:hover {
+  text-decoration: none;
+  border: 0;
+}
+#user-nav .auth a {
+  color: #1b75bb;
+}
+aside h2,
+.sidebar h2,
+aside h3,
+.sidebar h3,
+aside h4,
+.sidebar h4 {
+  color: #1b75bb;
+}
 body {
   font-family: "Muli", "Helvetica neue", Helvetica, sans-serif;
   padding-top: 150px;
@@ -1731,6 +1762,13 @@ button i {
 }
 .alert-container .alert {
   margin: 2em 0 0 0;
+}
+.alert p {
+  margin: 0;
+}
+.help-block {
+  font-size: .9em;
+  opacity: .9;
 }
 .mfp-wrap.white-popup-block .mfp-content h1,
 .mfp-wrap.white-popup-block .mfp-content h2,

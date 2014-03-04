@@ -565,6 +565,7 @@ class Modulebuilder
 
         // Load our current logged in user so we can access it anywhere.
         $current_user = $this->CI->user_model->find($this->CI->auth->user_id());
+        $current_user->meta = $this->CI->user_model->find_meta_for($current_user->id);
 
         $data['username'] = $current_user->username;
         $lang = $this->CI->load->view('files/config', $data, TRUE);

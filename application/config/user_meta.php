@@ -20,7 +20,34 @@
 //------------------------------------------------------------------------
 
 $config['user_meta_fields'] =  array(
-
+	array(
+		'name'=>'first_name',
+		'label'=>'First Name',
+		'rules'=>'trim|required',
+		'form_detail'=>array(
+			'type'=>"input",
+			'settings'=>array(
+				'id'=>'first_name',
+				'name'=>'first_name',
+				'maxlength'=>'100',
+				'class'=>'span10'
+				)
+			)
+		),	
+	array(
+		'name'=>'last_name',
+		'label'=>'Last Name',
+		'rules'=>'trim|required',
+		'form_detail'=>array(
+			'type'=>"input",
+			'settings'=>array(
+				'id'=>'last_name',
+				'name'=>'last_name',
+				'maxlength'=>'100',
+				'class'=>'span10'
+				)
+			)
+		),
 	array(
 		'name'   => 'category',
 		'label' => 'I am a...',
@@ -48,7 +75,7 @@ $config['user_meta_fields'] =  array(
 					)
 				)
 			)			
-		),
+		)
 	),
 	array(
 		'label' =>	'Company/Organization Name',
@@ -60,12 +87,88 @@ $config['user_meta_fields'] =  array(
 				'name'		=> 'organization',
 				'id'		=> 'organization',
 				'maxlength'	=> '100',
-				'class'		=> 'span6'
+				'class'		=> 'span10'
+			)
+		)
+	),
+	array(
+		'name'=>'501_status',
+		'label'=>"",
+		'rules'=>"",
+		'form_detail'=>array(
+			'type'=>'checkbox',
+			'settings'=>array(
+				'name'=>'501_status'
+				),
+			'options'=>array(
+				array(
+					'value' => "501c3",
+					'settings' => array(
+						'id'		=> '501_status',
+						'class'		=> '',
+						'label'		=> 'My organization is a 501(c)3'
+					)
+				),
+			)
+		)
+	),	
+	array(
+		'label' =>	'Street address',
+		'rules'	=>	'trim|required',
+		'name'	=> 'address',
+		'form_detail'	=> array(
+			'type'=>'input',
+			'settings' => array(
+				'name'		=> 'address',
+				'id'		=> 'address',
+				'maxlength'	=> '100',
+				'class'		=> 'span10'
+			)
+		)
+	),
+	array(
+		'label' =>	'City',
+		'rules'	=>	'trim|required',
+		'name'	=> 'city',
+		'form_detail'	=> array(
+			'type'=>'input',
+			'settings' => array(
+				'name'		=> 'city',
+				'id'		=> 'city',
+				'maxlength'	=> '100',
+				'class'		=> 'span10'
+			)
+		)
+	),
+	array(
+		'name'   => 'state',
+		'label'   => lang('user_meta_state'),
+		'rules'   => 'required|trim|max_length[100]',
+		'admin_only' => FALSE,
+		'form_detail' => array(
+			'type' => 'state_select',
+			'settings' => array(
+				'name'		=> 'state',
+				'id'		=> 'state',
+				'maxlength'	=> '100',
+				'class'		=> 'span4'
+			),
+		),
+	),
+	array(
+		'label' =>	'Zip',
+		'rules'	=>	'trim|required|alpha_dash|min_length[5]',
+		'name'	=> 'zip',
+		'form_detail'	=> array(
+			'type'=>'input',
+			'settings' => array(
+				'name'		=> 'zip',
+				'id'		=> 'zip',
+				'maxlength'	=> '9',
+				'class'		=> 'span2'
 			)
 		)
 	)
-
-
 /*	array(
 		'name'   => 'category',
 		'label'   => "",
@@ -94,7 +197,7 @@ $config['user_meta_fields'] =  array(
 				'name'		=> 'country',
 				'id'		=> 'country',
 				'maxlength'	=> '100',
-				'class'		=> 'span6'
+				'class'		=> 'span10'
 			),
 		),
 	)*/

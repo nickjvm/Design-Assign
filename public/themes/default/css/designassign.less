@@ -130,6 +130,38 @@ nav {
 		}
 	}
 }
+.relative {
+	position:relative;
+}
+#user-nav {
+	position:absolute;
+	top:0;
+	right:0;
+	padding:1em;font-size:1em;
+	a {
+		text-transform:inherit;
+		border:1px dotted @grayText;
+		border-width:0 0 1px 0;
+		border-radius:0;
+		&:hover {
+			text-decoration:none;
+			border:0;
+		}
+
+
+	}
+	.auth {
+		a {
+			color:@darkBlue;
+
+		}
+	}
+}
+aside,.sidebar {
+	h2,h3,h4 {
+		color:@darkBlue;
+	}
+}
 body {
 	font-family:"Muli","Helvetica neue",Helvetica,sans-serif;
 	padding-top:150px;
@@ -386,9 +418,19 @@ button {
 .alert-container {
 	.alert {
 		margin:2em 0 0 0;
+
+	}
+
+}
+.alert {
+	p {
+		margin:0;
 	}
 }
-
+.help-block {
+	font-size:.9em;
+	opacity:.9;
+}
 
 .mfp-wrap.white-popup-block {
 	.mfp-content {

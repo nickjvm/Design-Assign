@@ -54,6 +54,7 @@ define('SITE_AREA', 'admin');
 */
 define('LOGIN_URL', 'login');
 define('REGISTER_URL', 'register');
+define('PROFILE_URL', 'users/profile');
 
 
 /*

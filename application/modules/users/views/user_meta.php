@@ -40,7 +40,7 @@
 						<label class="control-label" for="<?php echo $field['name'] ?>"><?php echo lang('user_meta_state'); ?></label>
 						<div class="controls">
 
-							<?php echo state_select(set_value($field['name'], isset($user->$field['name']) ? $user->$field['name'] : 'IA'), 'IA', 'US', $field['name'], 'span6 chzn-select'); ?>
+							<?php echo state_select(set_value($field['name'], isset($user->$field['name']) ? $user->$field['name'] : 'IA'), 'IA', 'US', $field['name'], $field['form_detail']['settings']['class'].' chzn-select'); ?>
 
 						</div>
 					</div>

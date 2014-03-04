@@ -4,9 +4,11 @@
 
     <?php echo theme_view('_sitenav'); ?>
     <div class="container alert-container">
-    <?php
-        echo Template::message();
-	?>
+    	<div class="row">
+		    <?php
+		        echo Template::message();
+			?>
+		</div>
    </div>
    <?php
         echo isset($content) ? $content : Template::content();

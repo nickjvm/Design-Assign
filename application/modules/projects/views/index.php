@@ -14,7 +14,7 @@
             		<?php print $project->hours; ?></li>
             	<li><span class="label">Project Background:</span>
             		<div>
-    	        		<?php echo auto_typography($project->body) ?>		
+    	        		<?php echo character_limiter(auto_typography($project->body),60); ?>		
     	        	</div>
     	        </li>
             </ul>

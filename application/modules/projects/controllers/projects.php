@@ -14,7 +14,7 @@ class Projects extends Front_Controller
 
         public function index()
         {
-            $this->load->helper('typography');
+            $this->load->helper(array('typography','text'));
 
             $projects = $this->projects_model->order_by('created_on', 'desc')
                                       ->find_all();
@@ -35,8 +35,10 @@ class Projects extends Front_Controller
                                       ->find($id);
 
             if($notemplate) {
-                $this->load->view("project",$data);
+              $data['current_user'] = $this->current_user;
+              $this->load->view("project",$data);
             } else {
+
                 Template::set('project', $data['project']);
                 Template::render();
             }

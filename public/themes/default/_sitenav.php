@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <div class="row">
+    <div class="row relative">
         <div class="span3 logo-wrapper">
           <a id="logo" href="<?php echo site_url(); ?>">
                    <?php if (class_exists('Settings_lib')) {?>
@@ -20,13 +20,18 @@
                     <?php if(!$this->auth->is_logged_in() || has_permission('Bonfire.ProjectBriefs.Create')) { ?>
                      <li><a <?php echo check_method_arguments('create',''); ?> href="<?php echo site_url(); ?>projects/create">Post a project</a></li>
                     <?php } ?>
-                    <?php if (empty($current_user)) :?>
-                        <li><a href="<?php echo site_url(LOGIN_URL); ?>">Sign In</a></li>
-                    <?php else: ?>
-                        <li><a <?php echo check_method('profile'); ?> href="<?php echo site_url('/users/profile'); ?>"> <?php e(lang('bf_user_settings')); ?> </a></li>
-                        <li><a href="<?php echo site_url('/logout') ?>"><?php e( lang('bf_action_logout')); ?></a></li>
-                    <?php endif; ?>
+
                 </ul>
+          </nav>
+          <nav role="user-navigation" id="user-nav">
+            <ul class="inline">
+              <?php if(empty($current_user)) { ?>
+                <li><a href="<?php echo site_url(LOGIN_URL);?>">sign in</a> / <a href="<?php echo site_url(REGISTER_URL);?>">sign me up</a></li>
+              <?php } else { ?>
+                <li>Welcome back, <?php echo anchor(PROFILE_URL,$this->user_model->find_meta_for($current_user->id)->organization); ?>!</li>
+                <li><a href="<?php echo site_url("logout");?>">log out</a></li>
+              <?php } ?>
+              </ul>
           </nav>
         </div>
       </div>

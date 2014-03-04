@@ -165,12 +165,14 @@ class Base_Controller extends MX_Controller
 				$this->current_user = clone $this->auth->user();
 
 				$this->current_user->user_img = gravatar_link($this->current_user->email, 22, $this->current_user->email, "{$this->current_user->email} Profile");
-
+				$this->current_user->meta = $this->user_model->find_meta_for($this->current_user->id);
 				// if the user has a language setting then use it
 				if (isset($this->current_user->language))
 				{
 					$this->config->set_item('language', $this->current_user->language);
 				}
+
+
 			}
 
 			// Make the current user available in the views
@@ -179,6 +181,8 @@ class Base_Controller extends MX_Controller
 				$this->load->library('Template');
 			}
 			Template::set('current_user', $this->current_user);
+
+
 		}
 	}
 
