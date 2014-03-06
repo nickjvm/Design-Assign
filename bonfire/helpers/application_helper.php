@@ -615,7 +615,7 @@ if ( ! function_exists('iif'))
 	{
 		if ( $echo === false )
 		{
-			return ( $expression == 0 ) ? $returnfalse : $returntrue;
+			return ( $expression == 0 && strlen($expression) == 0 ) ? $returnfalse : $returntrue;
 		}
 		else
 		{

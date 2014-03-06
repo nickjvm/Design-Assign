@@ -16,7 +16,7 @@ class Projects extends Front_Controller
         {
             $this->load->helper(array('typography','text'));
 
-            $projects = $this->projects_model->order_by('created_on', 'desc')
+            $projects = $this->projects_model->order_by('created_on', 'desc')->where('deleted', 0)
                                       ->find_all();
 
             Template::set('projects', $projects);
@@ -26,26 +26,28 @@ class Projects extends Front_Controller
 
         //--------------------------------------------------------------------
 
-        public function project($id,$notemplate = FALSE)
+        public function project($id,$action = null)
         {
             $this->load->helper('typography');
 
-            $data['project'] = $this->projects_model->order_by('created_on', 'asc')
+            $project = $this->projects_model->order_by('created_on', 'asc')
                                       ->limit(1)
                                       ->find($id);
+            if($action == "apply") {
+                $this->apply($id,$this->current_user);
+            }                         
+            if(!$this->is_valid_applicant($id)) {
+              Template::set_message('You have already applied to volunteer on this project. We will contact you by May XXX if you are a match.', 'info');
 
-            if($notemplate) {
-              $data['current_user'] = $this->current_user;
-              $this->load->view("project",$data);
-            } else {
-
-                Template::set('project', $data['project']);
-                Template::render();
             }
+              Template::set('valid_applicant',$this->is_valid_applicant($id));
+              Template::set('project', $project);
+              Template::render();
 
         }
 
-        //--------------------------------------------------------------------
+
+
 
         public function create()
         {
@@ -80,6 +82,28 @@ class Projects extends Front_Controller
            } 
 
            Template::render();
+        }
+
+        private function is_valid_applicant($project_id) {
+          if(!$this->current_user) {
+            return true;
+          }
+          $search = array(
+            "project_id"=>$project_id,
+            "user_id"=>$this->current_user->id
+            );
+
+
+
+          $applications = $this->projects_model->select("id")
+                                              ->where($search)
+                                              ->find_all_applicants();
+
+          if($applications) {
+            return false;
+          }
+
+          return true;
         }
 
     }

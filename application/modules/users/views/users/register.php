@@ -16,9 +16,9 @@ $fieldData = array(
             <section id="profile" class="">
                 <h2 class="title"><?php echo lang('us_sign_up'); ?></h2>
                 <?php if ($validation_errors) : ?>
-                <div class="alert alert-error">
+                <!-- <div class="alert alert-error">
                     <?php echo $validation_errors; ?>
-                </div>
+                </div> -->
                 <?php endif; ?>
                 
                 <div class="row-fluid">
@@ -37,9 +37,9 @@ $fieldData = array(
                                <a class="btn btn-link" href="<?php print base_url();?>">Cancel</a>
                            </div>
                         <?php echo form_close(); ?>
-                        <p class='already-registered'>
+                        <p class='already-registered pull-right'>
                             <?php echo lang('us_already_registered'); ?>
-                            <?php echo anchor(LOGIN_URL, lang('bf_action_login')); ?>
+                            <?php echo anchor(LOGIN_URL, lang('bf_action_login'),"class='magnific'"); ?>
                         </p>
                     </div>
                 </div>

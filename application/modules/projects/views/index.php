@@ -1,5 +1,5 @@
 <div class="container" id="main-region">
-	<h1>Find a project</h1>
+	<h2 class="title">Find a project</h2 class="title">
 	<?php if (isset($projects) && is_array($projects)) :?>
     <div class="projects">
         <?php foreach ($projects as $project) : ?>
@@ -18,7 +18,7 @@
     	        	</div>
     	        </li>
             </ul>
-            <a href="<?php print site_url('projects/project/'.$project->brief_id.'/true');?>" class="magnific btn btn-link read-more pull-right">read more<i class="fa fa-chevron-circle-right"></i></a>
+            <a href="<?php print site_url('projects/project/'.$project->brief_id);?>" class="btn btn-link read-more pull-right">read more<i class="fa fa-chevron-circle-right"></i></a>
         </div>
         <?php endforeach; ?>
     </div>

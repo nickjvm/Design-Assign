@@ -1,10 +1,10 @@
 <?php
 	$site_open = $this->settings_lib->item('auth.allow_register');
 ?>
-<p><br/><a href="<?php echo site_url(); ?>">&larr; <?php echo lang('us_back_to') . $this->settings_lib->item('site.title'); ?></a></p>
 
 <div id="login">
-	<h2><?php echo lang('us_login'); ?></h2>
+	<h2><?php echo lang('us_login'); ?>
+		</h2>
 
 	<?php echo Template::message(); ?>
 
@@ -32,15 +32,17 @@
 		<div class="control-group <?php echo iif( form_error('password') , 'error') ;?>">
 			<div class="controls">
 				<input style="width: 95%" type="password" name="password" id="password" value="" tabindex="2" placeholder="<?php echo lang('bf_password'); ?>" />
+				<p class="inline-help"><?php echo anchor('/forgot_password', lang('us_forgot_your_password'),"class='magnific'"); ?></p>
 			</div>
 		</div>
 
 		<?php if ($this->settings_lib->item('auth.allow_remember')) : ?>
 			<div class="control-group">
 				<div class="controls">
+					<input type="checkbox" name="remember_me" id="remember_me" value="1" tabindex="3" />
+
 					<label class="checkbox" for="remember_me">
-						<input type="checkbox" name="remember_me" id="remember_me" value="1" tabindex="3" />
-						<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>
+						<?php echo lang('us_remember_note'); ?>
 					</label>
 				</div>
 			</div>
@@ -48,8 +50,15 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<input class="btn btn-large btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
+				<input class="btn btn-lg btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
+				<a href="<?php print site_url();?>" class="btn btn-link mfp-cancel">Cancel</a>
+				<div class='pull-right sign-up'>
+					<?php if ( $site_open ) : ?>
+						Not registered? <?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
+					<?php endif; ?>
+				</div>
 			</div>
+
 		</div>
 	<?php echo form_close(); ?>
 
@@ -65,12 +74,6 @@
 			</p>
 	<?php endif; ?>
 
-	<p style="text-align: center">
-		<?php if ( $site_open ) : ?>
-			<?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
-		<?php endif; ?>
-
-		<br/><?php echo anchor('/forgot_password', lang('us_forgot_your_password')); ?>
-	</p>
+	
 
 </div>

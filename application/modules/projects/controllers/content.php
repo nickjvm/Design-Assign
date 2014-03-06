@@ -17,8 +17,30 @@ class Content extends Admin_Controller
         public function index()
         {
 
-        	$briefs = $this->projects_model->where('deleted', 0)->find_all();
+        	if (isset($_POST['delete']))
+			{
+				$checked = $this->input->post('checked');
 
+				if (is_array($checked) && count($checked))
+				{
+					$result = FALSE;
+					foreach ($checked as $pid)
+					{
+						$result = $this->projects_model->delete($pid);
+					}
+
+					if ($result)
+					{
+						Template::set_message(count($checked) .' '. "projects deleted", 'success');
+					}
+					else
+					{
+						Template::set_message("Unable to delete projects". $this->applicants_model->error, 'error');
+					}
+				}
+			}
+        	$briefs = $this->projects_model->where('deleted', 0)->find_all();
+			
     	    Template::set('briefs', $briefs);
             Template::render();
         }

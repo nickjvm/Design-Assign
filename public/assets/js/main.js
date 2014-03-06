@@ -75,11 +75,51 @@ $(document).ready(function() {
 		}
 	};
 
-	$(".magnific").magnificPopup({
-		type: 'ajax',
-		overflowY: 'scroll',
-		mainClass:"white-popup-block"
-	});
+	var bindMagnificLinks = function() {
+			$("#login_value").focus();
+
+		$(".magnific").magnificPopup({
+			type: 'ajax',
+			overflowY: 'scroll',
+			mainClass:"white-popup-block",
+			callbacks: {
+				ajaxContentAdded:bindMagnificLinks
+			}
+
+		});
+
+		$(".mfp-cancel",".mfp-content").on("click",function(e) {
+			e.preventDefault();
+			$.magnificPopup.close();
+		});
+
+		$(".container-ajax form").on("submit",function(e) {
+			e.preventDefault();
+			var self = $(this);
+			var formData = $(this).serializeArray();
+			formData.push({name:'submit',value:'ajax'});
+			$.ajax({
+				data:formData,
+				type:"POST",
+				url:self.attr("action"),
+
+			}).done(function(data) {
+				var mfp = $.magnificPopup.instance
+
+				mfp.items[0] = {
+					src:data,
+					type:"inline",
+				};
+
+				mfp.updateItemHTML();
+				bindMagnificLinks();
+				
+			})
+		})
+	};
+
+	bindMagnificLinks();
+
 
 	$(document).on("click",".close-mfp",function(e){
 		e.preventDefault();

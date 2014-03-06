@@ -11,7 +11,8 @@ $defaultLanguage = isset($user->language) ? $user->language : strtolower(setting
 $defaultTimezone = isset($current_user) ? $current_user->timezone : strtoupper(settings_item('site.default_user_timezone'));
 
 ?>
-<div class="control-group<?php echo iif(form_error('email'), $errorClass); ?>">
+
+<div class="control-group <?php echo iif(form_error('email'), $errorClass); ?>">
     <label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="text" id="email" name="email" value="<?php echo set_value('email', isset($user) ? $user->email : ''); ?>" />

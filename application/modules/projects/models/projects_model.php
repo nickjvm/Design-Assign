@@ -12,60 +12,69 @@
 
         //---------------------------------------------------------------
         protected $validation_rules = array(
-            array(
-                'field' => 'title',
-                'label' => 'Project Name',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'body',
-                'label' => 'Description',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'type',
-                'label' => 'Project Type',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'hours',
-                'label' => 'Estimated project hours',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'audience',
-                'label' => 'Audience',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'message',
-                'label' => 'Message',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'deliverables',
-                'label' => 'Final product/deliverable',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'deadlines',
-                'label' => 'Known Deadlines',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'goals',
-                'label' => 'Goals of project',
-                'rules' => 'required|trim|strip_tags|xss_clean'
-            ),
-            array(
-                'field' => 'disclaimer',
-                'label' => 'Disclaimer acceptance',
-                'rules' => 'required'
-            )
+          array(
+              'field' => 'title',
+              'label' => 'Project Type',
+              'rules' => 'required|trim|strip_tags|xss_clean'
+          )
         );
 
         protected $insert_validation_rules = array(
-           'title' => 'required',
-           'body'  => 'required'
+           
+           'body'  => 'required',
+
+           array(
+               'field' => 'type',
+               'label' => 'Project Type',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),array(
+               'field' => 'budget',
+               'label' => 'Project Budget',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'hours',
+               'label' => 'Estimated project hours',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'audience',
+               'label' => 'Audience',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'message',
+               'label' => 'Message',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'deliverables',
+               'label' => 'Final product/deliverable',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'deadlines',
+               'label' => 'Known Deadlines',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'goals',
+               'label' => 'Goals of project',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           ),
+           array(
+               'field' => 'disclaimer',
+               'label' => 'Dislaimer Acceptance',
+               'rules' => 'required|trim|strip_tags|xss_clean'
+           )
+           
        );
+
+        public function find_all_applicants()
+          {
+              $this->db->join("applicants","applicants.project_id = briefs.brief_id");
+              return parent::find_all();
+          }
+
+       
     }

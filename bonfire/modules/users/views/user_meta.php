@@ -25,7 +25,7 @@
 
 			<?php elseif ($field['form_detail']['type'] == 'state_select' && is_callable('state_select')) : ?>
 
-				<div class="control-group <?php echo if( form_error($field['name']) , 'error'); ?>">
+				<div class="control-group <?php echo iif( form_error($field['name']) , 'error'); ?>">
 						<label class="control-label" for="<?php echo $field['name'] ?>"><?php echo lang('user_meta_state'); ?></label>
 						<div class="controls">
 

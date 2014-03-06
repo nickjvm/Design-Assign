@@ -1584,6 +1584,11 @@ h4 {
   margin: 0;
   padding: .5em;
 }
+.sidebar {
+  border-left: 1px solid #CCC;
+  margin-left: -1px !important;
+  padding-left: 2em;
+}
 .sidebar h2 {
   color: #1b75bb;
   margin: 0 0 .5em 0;
@@ -1757,6 +1762,16 @@ ol.list-steps li:before {
   font-size: 1.5em;
   margin-left: .3em;
 }
+.project-details li {
+  color: #1b75bb;
+  padding-bottom: 1em;
+  font-size: 1.2em;
+}
+.project-details li div {
+  font-size: .8em;
+  color: #000;
+  margin-top: 1em;
+}
 button i {
   margin-right: 3px;
 }
@@ -1769,6 +1784,9 @@ button i {
 .help-block {
   font-size: .9em;
   opacity: .9;
+}
+.sign-up {
+  margin-top: 1em;
 }
 .mfp-wrap.white-popup-block .mfp-content h1,
 .mfp-wrap.white-popup-block .mfp-content h2,

@@ -26,9 +26,16 @@
           <nav role="user-navigation" id="user-nav">
             <ul class="inline">
               <?php if(empty($current_user)) { ?>
-                <li><a href="<?php echo site_url(LOGIN_URL);?>">sign in</a> / <a href="<?php echo site_url(REGISTER_URL);?>">sign me up</a></li>
+                <li><a class='magnific' href="<?php echo site_url(LOGIN_URL);?>">sign in</a> / <a href="<?php echo site_url(REGISTER_URL);?>">sign me up</a></li>
               <?php } else { ?>
-                <li>Welcome back, <?php echo anchor(PROFILE_URL,$this->user_model->find_meta_for($current_user->id)->organization); ?>!</li>
+                <?php if($current_user->meta->category == "creative"): ?>
+                  <li>Welcome back, <?php echo anchor(PROFILE_URL,$current_user->meta->first_name); ?>!</li>
+                <?php else: ?>
+                  <li>Welcome back, <?php echo anchor(PROFILE_URL,$current_user->meta->organization); ?>!</li>
+                <?php endif; ?>
+                <?php if(has_permission('Site.Content.View')): ?>
+                  <li><a href="<?php print site_urL(SITE_AREA); ?>">admin</a></li>
+                <?php endif;?>
                 <li><a href="<?php echo site_url("logout");?>">log out</a></li>
               <?php } ?>
               </ul>
