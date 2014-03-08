@@ -1,9 +1,27 @@
 <div class="container" id="main-region">
-	<h2 class="title">Find a project</h2 class="title">
-	<?php if (isset($projects) && is_array($projects)) :?>
-    <div class="projects">
+    <div class="row">
+        <div class="span12">
+        <div class="title-over-image">
+            <img src="<?php print img_path().'find-a-project.jpg'; ?>"/>
+        	<h2 class="title">Find a project</h2>
+        </div>
+    	<?php if (isset($projects) && is_array($projects)) :?>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
+            laborum.
+        </p>
+    </div>
+    </div>
+    <div class="projects row">
         <?php foreach ($projects as $project) : ?>
-        <div class="project-brief">
+        <div class="project-brief span3">
+            <?php if(!$project->valid): ?>
+            <div class="applied" title="Your application for this project has been submitted">
+                <i class="fa fa-check"></i>
+            </div>
+        <?php endif; ?>
             <h2><?php e($project->title) ?></h2>
             <ul class="list-unstyled">
             	<li>

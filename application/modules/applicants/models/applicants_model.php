@@ -65,8 +65,9 @@ class Applicants_model extends BF_Model {
 
 
 	public function find_project()
-	  {
-	      $this->db->join("briefs","applicants.project_id = briefs.brief_id");
-	      return parent::find_by();
-	  }
+	{
+	  $this->db->join("briefs","applicants.project_id = briefs.brief_id");
+	  return parent::find_by();
+	}
+
 }

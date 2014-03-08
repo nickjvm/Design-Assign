@@ -8,6 +8,7 @@ class Projects extends Front_Controller
             parent::__construct();
             $this->load->helper("form");
             $this->load->model('projects_model');
+            $this->load->model('applicants/applicants_model');
         }
 
         //--------------------------------------------------------------------
@@ -16,9 +17,15 @@ class Projects extends Front_Controller
         {
             $this->load->helper(array('typography','text'));
 
-            $projects = $this->projects_model->order_by('created_on', 'desc')->where('deleted', 0)
+            $projects = $this->projects_model->order_by('created_on', 'desc')->where('deleted', 0)->where('approved',1)
                                       ->find_all();
-
+            foreach($projects as $project) {
+              if($this->is_valid_applicant($project->brief_id)) {
+                $project->valid = true;
+              } else {
+                $project->valid = false;
+              }
+            }                         
             Template::set('projects', $projects);
 
             Template::render();
@@ -76,7 +83,7 @@ class Projects extends Front_Controller
 
                if ($this->projects_model->insert($data))
                {
-                   Template::set_message('You post was successfully saved.', 'success');
+                   Template::set_message('You post was successfully submitted for approval. Once approved, it will appear in the list below.', 'success');
                    redirect(base_url() .'projects');
                } 
            } 

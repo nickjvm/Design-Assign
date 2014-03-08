@@ -428,7 +428,9 @@ class Users extends Front_Controller
 			Template::set_message(lang('us_register_disabled'), 'error');
 			Template::redirect('/');
 		}
-
+			if($this->current_user) {
+			Template::redirect(PROFILE_URL);
+		}
 		$this->load->model('roles/role_model');
 		$this->load->helper('date');
 

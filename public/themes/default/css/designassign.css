@@ -1636,11 +1636,14 @@ footer {
   border-top: 10px solid #cccccc;
   background: #1b75bb;
   color: #FFF;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-top: 2em;
 }
 footer h4 {
+  margin-top: 0;
   font-size: 1.6em;
+  color: #FFF;
   margin-bottom: 1em;
 }
 footer .disclaimer {
@@ -1661,7 +1664,10 @@ footer .connect i + i {
 footer .hashtag-search {
   color: #FFF;
 }
-.partners {
+footer .partners {
+  padding-left: 30px;
+}
+footer .partners .partners-list {
   margin: 1em 0 2em 0;
 }
 input[type="radio"],
@@ -1680,7 +1686,7 @@ input[type="checkbox"] {
 ol.list-steps {
   counter-reset: section;
   list-style-type: none;
-  padding-left: 5em;
+  padding-left: 4em;
   margin: 0;
 }
 ol.list-steps li {
@@ -1713,18 +1719,46 @@ ol.list-steps li:before {
   line-height: 0;
   font-size: 1.5em;
 }
+ol.list-steps li.call-to-action {
+  text-align: right;
+  margin: 0 0 1em 0;
+}
+ol.list-steps li.call-to-action:before,
+ol.list-steps li.call-to-action:after {
+  display: none;
+}
 .projects {
   margin-top: 1em;
 }
 .projects .project-brief {
   display: inline-block;
-  width: 23%;
   background: #F5F5F5;
-  margin-right: 1em;
   vertical-align: top;
+  margin-bottom: 1em;
+  position: relative;
 }
 .projects .project-brief:nth-child(4n) {
   margin-right: 0;
+}
+.projects .project-brief .applied {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  color: #1B75BB;
+  font-size: 20px;
+}
+.projects .project-brief .applied i {
+  padding: 4px;
+}
+.projects .project-brief .applied i:after {
+  position: absolute;
+  content: "";
+  border: 25px solid rgba(0, 0, 0, 0);
+  border-color: #ffffff #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  top: 0;
+  right: 0;
+  z-index: -1;
+  opacity: .8;
 }
 .projects .project-brief h2 {
   padding: 5px 1em;

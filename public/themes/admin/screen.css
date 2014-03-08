@@ -414,6 +414,9 @@ table .column-check {
 	text-align: center;
 }
 
+table .column-check input {
+	margin:0;
+}
 tfoot td {
 	line-height: 2.1 !important;
 }

@@ -35,12 +35,37 @@ class Content extends Admin_Controller
 					}
 					else
 					{
-						Template::set_message("Unable to delete projects". $this->applicants_model->error, 'error');
+						Template::set_message("Unable to delete projects". $this->projects_model->error, 'error');
 					}
 				}
 			}
-        	$briefs = $this->projects_model->where('deleted', 0)->find_all();
-			
+        	if (isset($_POST['approve']))
+			{
+				$checked = $this->input->post('checked');
+
+				if (is_array($checked) && count($checked))
+				{
+					$result = FALSE;
+					foreach ($checked as $pid)
+					{
+						$this->projects_model->skip_validation(true);
+						$result = $this->projects_model->update($pid,array('approved'=>1));
+					}
+
+					if ($result)
+					{
+						Template::set_message(count($checked) .' '. "projects approved", 'success');
+					}
+					else
+					{
+						Template::set_message("Unable to approve projects". $this->projects_model->error, 'error');
+					}
+				}
+			}
+        	$briefs = $this->projects_model->where('deleted', 0)->order_by('created_on',"asc")->find_all();
+        	foreach($briefs as $brief) {
+        		$brief->organization = $this->user_model->find_user_and_meta($brief->created_by)->organization;
+        	}
     	    Template::set('briefs', $briefs);
             Template::render();
         }
@@ -75,11 +100,22 @@ class Content extends Admin_Controller
 		    if ($this->input->post('submit'))
 		    {
 		        $data = array(
-		            'title' => $this->input->post('title'),
-		            'body'  => $this->input->post('body'),
-		            'organization'  => $this->input->post('organization'),
-		            'hours'  => $this->input->post('hours')
-		        );
+                   'title' => $this->input->post('title'),
+                   'body'  => $this->input->post('body'),
+                   'hours'  => $this->input->post('hours'),
+                   'type'  => $this->input->post('type'),
+                   'audience'  => $this->input->post('audience'),
+                   'budget'  => $this->input->post('budget'),
+                   'message'  => $this->input->post('message'),
+                   'deliverables'  => $this->input->post('deliverables'),
+                   'deadlines'  => $this->input->post('deadlines'),
+                   'goals'  => $this->input->post('goals')
+               );
+		        if($this->input->post("approved")) {
+		        	$data['approved'] = 1;
+		        } else {
+		        	$data['approved'] = 0;
+		        }
 
 		        if ($this->projects_model->update($id, $data))
 		        {

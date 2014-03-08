@@ -1,10 +1,53 @@
 <?php if (!isset($show) || $show==true) : ?>
 
-<footer class="footer">
-    <div class="container">
-        <p>Powered by <a href="http://cibonfire.com" target="_blank">Bonfire <?php echo BONFIRE_VERSION ?></a></p>
-    </div>
-</footer>
+	<footer class="footer container">
+		<div class="row">
+	    <div class="span8">
+		    <div class="partners">
+		      <h4>Partners</h4>
+		      <ul class="partners-list inline list-unstyled">
+		        <li>
+		          <img src="<?php print img_path().'aiga.png'; ?>"/>
+		        </li>
+		      </ul>
+		      <div class="disclaimer">
+		        <p>&copy; <?php print date("Y");?>, All Rights Reserved. </p>
+		        <p>AIGA | the professional association for design</p>
+		    </div>
+	      </div>
+	    </div>
+	    <div class="span4">
+	      <h4>Connect</h4>
+	      <ul class="inline connect">
+	        <li>
+	          <a href="#">
+	            <span class="fa-stack fa-2x">
+	              <i class="fa fa-circle fa-stack-2x"></i>
+	              <i class="fa fa-stack-1x fa-envelope"></i>
+	            </span>
+	          </a>
+	        </li>
+	        <li>
+	          <a href="http://facebook.com">
+	            <span class="fa-stack fa-2x">
+	              <i class="fa fa-circle fa-stack-2x"></i>
+	              <i class="fa fa-stack-1x fa-facebook"></i>
+	            </span>
+	          </a>
+	        </li>
+	        <li>
+	          <a href="http://twitter.com">
+	            <span class="fa-stack fa-2x">
+	              <i class="fa fa-circle fa-stack-2x"></i>
+	              <i class="fa fa-stack-1x fa-twitter"></i>
+	            </span>
+	          </a>
+	        </li>
+	      </ul>
+	      <a class="hashtag-search" href="https://twitter.com/search?q=%23designassign">#DesignAssign</a>
+	    </div>
+	</div>
+	</footer>
 <?php endif; ?>
 
 <div id="debug"></div>
