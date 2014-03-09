@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 				mfp.items[0] = {
 					src:data,
-					type:"inline",
+					type:"inline"
 				};
 
 				mfp.updateItemHTML();

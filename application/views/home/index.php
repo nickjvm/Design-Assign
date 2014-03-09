@@ -50,7 +50,7 @@
 				  	Learn More	  </h4>
 				  <p>
 				  	Not sure where to go next? Want to learn more about Design Assign and the process?</p>
-				  <a class="btn btn-link pull-right" href="<?php print site_url('pages/page/who-we-are');?>">
+				  <a class="btn btn-link pull-right" href="<?php print site_url('who-we-are');?>">
 				    Learn more about Design Assign<i class="fa fa-chevron-circle-right fa-2x"></i>
 				  </a>
 				</div>

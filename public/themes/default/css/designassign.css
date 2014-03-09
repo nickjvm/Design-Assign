@@ -1716,6 +1716,17 @@ input[type="checkbox"] {
   footer.container {
     margin: 2em -20px 0 -20px;
   }
+  header {
+    position: relative;
+    margin: 0 -20px;
+  }
+  body {
+    padding-top: 0;
+  }
+  #jumbotron-wrapper {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 @media (min-width: 1200px) {
   .nav.navbar-nav {
