@@ -20,6 +20,7 @@ class content extends Admin_Controller
 
 		$this->auth->restrict('Applicants.Content.View');
 		$this->load->model('applicants_model', null, true);
+		$this->load->model('projects/projects_model');
 		$this->lang->load('applicants');
 		
 		Template::set_block('sub_nav', 'content/_sub_nav');
@@ -63,7 +64,10 @@ class content extends Admin_Controller
 		}
 
 		$records = $this->applicants_model->find_all();
-
+		foreach($records as $record) {
+			$record->project = $this->projects_model->find($record->project_id);
+			$record->organization = $this->user_model->find_user_and_meta($record->project->created_by)->organization;
+		}
 		Template::set('records', $records);
 		Template::set('toolbar_title', 'Manage Applicants');
 		Template::render();
@@ -155,6 +159,7 @@ class content extends Admin_Controller
 			}
 		}
 		Template::set('applicants', $this->applicants_model->find($id));
+		Template::set('projects', $this->projects_model->where("deleted",0)->find_all());
 		Template::set('toolbar_title', lang('applicants_edit') .' Applicants');
 		Template::render();
 	}

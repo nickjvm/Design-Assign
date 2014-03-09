@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     $config['module_config'] = array(
-        'name'          => 'Project Brief',
+        'name'          => 'Project Briefs',
         'description'   => 'Allow creation of project briefs for Nonprofits',
         'author'        => 'Nick VanMeter',
         'homepage'      => 'http://...',

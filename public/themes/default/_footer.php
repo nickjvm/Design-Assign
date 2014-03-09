@@ -1,9 +1,8 @@
 <?php if (!isset($show) || $show==true) : ?>
 
-	<footer class="footer container">
+	<footer class="footer  container">
 		<div class="row">
-	    <div class="span8">
-		    <div class="partners">
+	    <div class="span8 partners">
 		      <h4>Partners</h4>
 		      <ul class="partners-list inline list-unstyled">
 		        <li>
@@ -13,7 +12,6 @@
 		      <div class="disclaimer">
 		        <p>&copy; <?php print date("Y");?>, All Rights Reserved. </p>
 		        <p>AIGA | the professional association for design</p>
-		    </div>
 	      </div>
 	    </div>
 	    <div class="span4">

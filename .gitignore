@@ -63,3 +63,4 @@ vendor/*
 
 # Ignore any sparks that have been loaded
 sparks/*
+public/deploy.php

@@ -33,9 +33,13 @@ $id = isset($applicants['id']) ? $applicants['id'] : '';
 			</div>
 
 			<div class="control-group <?php echo form_error('project_id') ? 'error' : ''; ?>">
-				<?php echo form_label('Project ID'. lang('bf_form_label_required'), 'applicants_project_id', array('class' => 'control-label') ); ?>
+				<?php echo form_label('Project'. lang('bf_form_label_required'), 'applicants_project_id', array('class' => 'control-label') ); ?>
 				<div class='controls'>
-					<input id='applicants_project_id' type='text' name='applicants_project_id' maxlength="30" value="<?php echo set_value('applicants_project_id', isset($applicants['project_id']) ? $applicants['project_id'] : ''); ?>" />
+					<select name="applicants_project_id">
+						<?php foreach($projects as $project): ?>
+							<option value="<?php echo $project->brief_id; ?>" <?php echo (isset($applicants['project_id']) && $applicants['project_id'] == $project->brief_id) ? "selected" : ''; ?>><?php print $project->title; ?></option>
+						<?php endforeach;?>
+					</select>
 					<span class='help-inline'><?php echo form_error('project_id'); ?></span>
 				</div>
 			</div>

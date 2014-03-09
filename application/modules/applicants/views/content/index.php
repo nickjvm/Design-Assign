@@ -1,6 +1,6 @@
 <?php
 
-$num_columns	= 3;
+$num_columns	= 4;
 $can_delete	= $this->auth->has_permission('Applicants.Content.Delete');
 $can_edit		= $this->auth->has_permission('Applicants.Content.Edit');
 $has_records	= isset($records) && is_array($records) && count($records);
@@ -17,7 +17,8 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<?php endif;?>
 					
 					<th>Name</th>
-					<th>Project ID</th>
+					<th>Project Title</th>
+					<th>Organization</th>
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -43,11 +44,12 @@ $has_records	= isset($records) && is_array($records) && count($records);
 					<?php endif;?>
 					<?php $user = $this->user_model->find_user_and_meta($record->user_id); ?>
 				<?php if ($can_edit) : ?>
-					<td><?php echo anchor(SITE_AREA . '/content/applicants/edit/' . $record->id, '<span class="icon-pencil"></span>' .  $user->first_name." ".$user->last_name); ?></td>
+					<td><?php echo anchor(SITE_AREA . '/content/applicants/edit/' . $record->id,  $user->first_name." ".$user->last_name); ?></td>
 				<?php else : ?>
 					<td><?php e($record->user_id); ?></td>
 				<?php endif; ?>
-					<td><?php e($record->project_id) ?></td>
+					<td><?php e($record->project->title) ?></td>
+					<td><?php e($record->organization) ?></td>
 				</tr>
 				<?php
 					endforeach;

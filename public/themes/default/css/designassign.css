@@ -1620,42 +1620,39 @@ h4 {
 .fa-7x {
   font-size: 7em;
 }
-footer {
+footer.container {
   border-top: 10px solid #cccccc;
   background: #1b75bb;
   color: #FFF;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: 2em;
+  padding: 20px;
+  padding-top: 0;
+  margin: 2em -20px 0 -20px;
 }
-footer h4 {
-  margin-top: 0;
+footer.container h4 {
+  margin-top: 1em;
   font-size: 1.6em;
   color: #FFF;
   margin-bottom: 1em;
 }
-footer .disclaimer {
+footer.container .disclaimer {
   font-size: .9em;
 }
-footer .disclaimer p {
+footer.container .disclaimer p {
   margin-bottom: 0;
 }
-footer .connect li:hover {
+footer.container .connect li:hover {
   opacity: .7;
 }
-footer .connect i {
+footer.container .connect i {
   color: #FFF;
 }
-footer .connect i + i {
+footer.container .connect i + i {
   color: #1b75bb;
 }
-footer .hashtag-search {
+footer.container .hashtag-search {
   color: #FFF;
 }
-footer .partners {
-  padding-left: 30px;
-}
-footer .partners .partners-list {
+footer.container .partners-list {
   margin: 1em 0 2em 0;
 }
 input[type="radio"],
