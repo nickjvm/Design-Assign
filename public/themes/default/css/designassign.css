@@ -1392,6 +1392,9 @@ input[type="button"].btn-block {
 input[type=file] {
   line-height: 1;
 }
+.navbar {
+  border: 0;
+}
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1469,19 +1472,9 @@ header {
 .toolbar.toolbar-drawer header {
   top: 64px;
 }
-.navigation-wrapper,
-.logo-wrapper {
-  display: inline-block;
-  float: none;
-  vertical-align: middle;
-}
-.navigation-wrapper {
-  vertical-align: bottom;
-  margin-bottom: 1.4em;
-}
 #logo {
   display: block;
-  padding: 1em;
+  padding: .5em 1em;
 }
 nav {
   font-size: 1.3em;
@@ -1584,11 +1577,6 @@ h4 {
   margin: 0;
   padding: .5em;
 }
-.sidebar {
-  border-left: 1px solid #CCC;
-  margin-left: -1px !important;
-  padding-left: 2em;
-}
 .sidebar h2 {
   color: #1b75bb;
   margin: 0 0 .5em 0;
@@ -1674,13 +1662,64 @@ input[type="radio"],
 input[type="checkbox"] {
   margin: -4px 1em 0 0;
 }
-@media (min-width: 992px) {
+@media (min-width: 980px) {
   .main-content {
     border-right: 1px solid #cccccc;
     padding-right: 2em;
   }
   .main-content.no-sidebar {
     border-right: 0;
+  }
+  .sidebar {
+    border-left: 1px solid #CCC;
+    margin-left: -1px !important;
+    padding-left: 2em;
+  }
+}
+.nav.navbar-nav {
+  margin-top: 80px;
+}
+.navbar {
+  margin-bottom: 0;
+}
+.navbar .btn-navbar {
+  margin-top: 17px;
+  padding: 4px 10px 2px 10px;
+  background: #FFF;
+  border: 1px solid #1b75bb;
+}
+.navbar .btn-navbar i {
+  color: #1b75bb;
+  margin-right: 0;
+}
+@media (max-width: 979px) {
+  #logo {
+    padding: 10px 15px;
+    width: 80px;
+  }
+  body {
+    padding-top: 70px;
+  }
+  #user-nav {
+    display: none;
+  }
+  .nav.navbar-nav {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .call-to-action {
+    margin: 0 0 2em 0;
+  }
+  .call-to-action .fa-stack {
+    left: 0;
+    font-size: 50px;
+  }
+}
+@media (min-width: 1200px) {
+  .nav.navbar-nav {
+    margin-left: 2em;
   }
 }
 ol.list-steps {

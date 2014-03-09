@@ -69,6 +69,9 @@ $route['activate/(:any)']		= 'users/activate/$1';
 $route['resend_activation']		= 'users/resend_activation';
 
 $route['projects/project/(:num)/apply'] = 'applicants/apply/$1';
+$route['(who-we-are|hows-it-work)'] = 'pages/page/$1';
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
