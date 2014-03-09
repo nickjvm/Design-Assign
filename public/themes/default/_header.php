@@ -28,6 +28,6 @@
 
     <?php echo Assets::css(); ?>
 
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>themes/default/favicon.ico">
 </head>
 <body>
