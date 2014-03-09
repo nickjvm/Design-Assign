@@ -60,5 +60,6 @@
 		<div class="span4 sidebar">
 			<?php Template::block('events', 'events', null, true); ?>
 
+		</div>
 	</div>
 </div>

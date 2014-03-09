@@ -1626,7 +1626,7 @@ footer.container {
   color: #FFF;
   padding: 20px;
   padding-top: 0;
-  margin: 2em -20px 0 -20px;
+  margin-top: 2em;
 }
 footer.container h4 {
   margin-top: 1em;
@@ -1713,6 +1713,9 @@ input[type="checkbox"] {
     left: 0;
     font-size: 50px;
   }
+  footer.container {
+    margin: 2em -20px 0 -20px;
+  }
 }
 @media (min-width: 1200px) {
   .nav.navbar-nav {
@@ -1770,7 +1773,7 @@ ol.list-steps li.call-to-action:after {
   display: inline-block;
   background: #F5F5F5;
   vertical-align: top;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   position: relative;
 }
 .projects .project-brief:nth-child(4n) {

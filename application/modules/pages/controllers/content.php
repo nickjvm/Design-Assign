@@ -48,7 +48,7 @@ class Content extends Admin_Controller
 		   Template::render();
 		}
 
-		public function edit($id=null,$return)
+		public function edit($id=null,$return = null)
 		{
 		    if ($this->input->post('submit'))
 		    {
@@ -58,8 +58,8 @@ class Content extends Admin_Controller
 		            'body'  => $this->input->post('body'),
 		            'sidebar'  => $this->input->post('sidebar')
 		        );
-
-		        if($this->input->post("image")['size'] ) {
+		        $image = $this->input->post("image");
+		        if(isset($image) && $image['size']) {
 			        if($image = $this->upload_image("image")) {
 				        $data['image'] = $image['file_name'];
 				    }
