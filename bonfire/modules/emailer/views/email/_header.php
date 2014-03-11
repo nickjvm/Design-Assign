@@ -25,7 +25,7 @@
 
 	<tr>
 		<td style="background-color:#FFF;border-bottom:1px solid #CCC;color: #333;text-align:left;" align="center">
-			<a href="<?php print $link; ?>">
+			<a href="<?php print isset($link) ? $link : ''; ?>">
 				<img width="100" height="60" border="0" src="http://designassign.nikosquad.net/themes/default/images/logo.png<?php //print site_url("themes/default/images/logo.png"); ?>" alt="Design Assign"/>
 			</a>
 		</td>

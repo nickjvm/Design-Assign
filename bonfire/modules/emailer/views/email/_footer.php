@@ -3,7 +3,7 @@
 
 					<tr>
 						<td style="background-color:#fff;border-top:1px solid #ccc;" valign="top">
-							&copy; <?php print $title;?>, <?php print date("Y");?>.  All rights reserved.
+							&copy; <?php print isset($title) ? $title.", " : "";?><?php print date("Y");?>.  All rights reserved.
 						</td>
 					</tr>
 
