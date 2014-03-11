@@ -174,7 +174,7 @@ $lang['us_admin_approval_pending']  = 'Your account is pending admin approval. Y
 $lang['us_account_not_active'] 		= 'Your account is not yet active please activate your account by entering the code.';
 $lang['us_account_active'] 			= 'Congratulations. Your account is now active!.';
 $lang['us_account_active_login'] 	= 'Your account is active and you can now login.';
-$lang['us_account_reg_complete'] 	= 'Registration to [SITE_TITLE] completed!';
+$lang['us_account_reg_complete'] 	= 'Welcome to [SITE_TITLE]!';
 $lang['us_active_status_changed'] 	= 'The user status was successfully changed.';
 $lang['us_active_email_sent'] 		= 'Activation email was sent.';
 // Activation Errors

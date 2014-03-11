@@ -48,10 +48,10 @@ class applicants extends Front_Controller
 	//--------------------------------------------------------------------
 	public function apply($project_id)
 	{
-		$this->auth->restrict('Applicants.Content.Create');
+		$this->auth->restrict('Bonfire.ProjectBriefs.Apply',site_url('projects/project/'.$project_id));
+
 		$project = $this->projects_model->find($project_id);
 		Template::set('project', $project);
-
 		if(isset($_POST['submit'])) {
 			if ($insert_id = $this->save_applicant(0,$project_id))
 			{

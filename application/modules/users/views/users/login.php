@@ -20,8 +20,8 @@
 		</div>
 	</div>
 	<?php endif; ?>
-
-	<?php echo form_open(LOGIN_URL, array('autocomplete' => 'off')); ?>
+	<?php $loginurl = $this->input->get("dest") ? LOGIN_URL."?dest=".$this->input->get("dest") : LOGIN_URL; ?>
+	<?php echo form_open($loginurl, array('autocomplete' => 'off')); ?>
 
 		<div class="control-group <?php echo iif( form_error('login') , 'error') ;?>">
 			<div class="controls">

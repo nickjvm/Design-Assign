@@ -59,8 +59,7 @@ class Projects extends Front_Controller
         public function create()
         {
           if(!$this->auth->is_logged_in()) {
-            Template::set_message('Please log in to post a project',  'error');
-            redirect('login','location',301);
+            $this->auth->restrict('Bonfire.ProjectBriefs.Apply',site_url('projects/create'),"Please log in to post a project");
 
           }
            if ($this->input->post('submit'))

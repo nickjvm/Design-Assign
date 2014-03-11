@@ -363,21 +363,26 @@ class Auth
 	 *
 	 * @return bool TRUE if the user has the appropriate access permissions. Redirect to the previous page if the user doesn't have permissions. Redirect to LOGIN_AREA page if the user is not logged in.
 	 */
-	public function restrict($permission=NULL, $uri=NULL)
+	public function restrict($permission=NULL, $uri=NULL ,$message = null)
 	{
 		// If user isn't logged in, don't need to check permissions
+
 		if ($this->is_logged_in() === FALSE)
 		{
+			$error_message = isset($message) ? $message : $this->ci->lang->line('us_must_login');
+
 			$this->ci->load->library('Template');
-			Template::set_message($this->ci->lang->line('us_must_login'), 'error');
-			Template::redirect(LOGIN_URL);
+			Template::set_message($message, 'error');
+			$loginurl = $uri ? LOGIN_URL."?dest=".$uri : LOGIN_URL;
+			Template::redirect($loginurl);
 		}
 
 		// Check to see if the user has the proper permissions
 		if ( ! empty($permission) && ! $this->has_permission($permission))
 		{
+			$error_message = isset($message) ? $message: lang('us_no_permission');
 			// set message telling them no permission THEN redirect
-			Template::set_message( lang('us_no_permission'), 'attention');
+			Template::set_message( $error_message, 'attention');
 
 			if ( ! $uri)
 			{
@@ -391,6 +396,7 @@ class Auth
 					$uri = site_url();
 				}
 			}
+			die($uri);
 			Template::redirect($uri);
 		}
 

@@ -87,6 +87,9 @@ class Users extends Front_Controller
 						cases where we are presenting different information to different
 						roles that might cause the base destination to be not available.
 					*/
+					if($this->input->get("dest")) {
+						Template::redirect($this->input->get("dest"));
+					} 
 					if ($this->settings_lib->item('auth.do_login_redirect') && !empty ($this->auth->login_destination))
 					{
 						Template::redirect($this->auth->login_destination);
@@ -99,6 +102,9 @@ class Users extends Front_Controller
 						}
 						else
 						{
+							print $this->requested_page;
+							print $this->previous_page;
+							die();
 							Template::redirect('/');
 						}
 					}
@@ -493,6 +499,11 @@ class Users extends Front_Controller
 					// Activate the user automatically
 					$data['active'] = 1;
 				}
+				if($meta_data['category'] == 'creative') {
+					$data['role_id'] = 7;
+				} else if($meta_data['category'] == 'non-profit') {
+					$data['role_id'] = 8;
+				}
 
 				if ($user_id = $this->user_model->insert($data))
 				{
@@ -516,7 +527,12 @@ class Users extends Front_Controller
 						case 0:
 							// No activation required. Activate the user and send confirmation email
 							$subject 		=  str_replace('[SITE_TITLE]',$this->settings_lib->item('site.title'),lang('us_account_reg_complete'));
-							$email_mess 	= $this->load->view('_emails/activated', array('title'=>$site_title,'link' => site_url()), true);
+							$email_mess 	= $this->load->view('_emails/activated', array(
+								'title'=>$site_title,
+								'link' => site_url(),
+								'name' => $meta_data['first_name'],
+								'role' => $data['role_id']
+								), true);
 							$message 		.= lang('us_account_active_login');
 							break;
 						case 1:
@@ -549,12 +565,15 @@ class Users extends Front_Controller
 					$data = array(
 						'to'		=> $_POST['email'],
 						'subject'	=> $subject,
-						'message'	=> $email_mess
+						'message'	=> $email_mess,
 					);
 
 					if (!$this->emailer->send($data))
 					{
-						$message .= lang('us_err_no_email'). $this->emailer->error;
+						print "<pre>";
+						print_r($this->emailer);
+						die();
+						$message .= lang('us_err_no_email'). $this->emailer->errors	;
 						$error    = true;
 					}
 
