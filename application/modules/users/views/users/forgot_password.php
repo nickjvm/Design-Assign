@@ -14,7 +14,7 @@
 
 
 
-	<?php echo form_open($this->uri->uri_string(), array('autocomplete' => 'off')); ?>
+	<?php echo form_open($this->uri->uri_string(), array('autocomplete' => 'off',"class"=>"no-ajax-submit")); ?>
 
 		<div class="control-group <?php echo iif( form_error('email') , 'error'); ?>">
 				<input class="span12" placeholder="Email" type="text" name="email" id="email" value="<?php echo set_value('email') ?>" />

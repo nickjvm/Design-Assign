@@ -181,7 +181,7 @@ class Users extends Front_Controller
 		// if the user is not logged in continue to show the login page
 		if ($this->auth->is_logged_in() === FALSE)
 		{
-			if (isset($_POST['send']))
+			if (isset($_POST['send']) || isset($_POST['submit']) )
 			{
 				$this->form_validation->set_rules('email', 'lang:bf_email', 'required|trim|valid_email');
 
@@ -217,6 +217,11 @@ class Users extends Front_Controller
 						if ($this->emailer->send($data))
 						{
 							Template::set_message(lang('us_reset_pass_message'), 'success');
+
+							if($this->input->is_ajax_request()) {
+								print json_encode(array("dest"=>LOGIN_URL));
+								return;
+							}
 						}
 						else
 						{

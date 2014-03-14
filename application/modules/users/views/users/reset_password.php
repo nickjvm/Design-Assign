@@ -1,9 +1,11 @@
-	<div class="page-header">
-		<h1>Reset Your Password</h1>
-	</div>
+<div class="container" id="main-region">	
+<div class="row-fluid">
+	<div class="span3"></div>
+	<div class="span6">
+		<h2 class="title">Reset Your Password</h2>
 
 	<div class="alert alert-info fade in">
-		<h4 class="alert-heading"><?php echo lang('us_reset_password_note'); ?></h4>
+		<?php echo lang('us_reset_password_note'); ?>
 	</div>
 
 
@@ -13,8 +15,6 @@
 	</div>
 <?php endif; ?>
 
-<div class="row-fluid">
-	<div class="span12">
 
 <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
 
@@ -43,5 +43,6 @@
 
 <?php echo form_close(); ?>
 
-	</div>
+</div>
+<div class="span3"></div>
 </div>
