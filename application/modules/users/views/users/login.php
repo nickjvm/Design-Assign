@@ -2,27 +2,28 @@
 	$site_open = $this->settings_lib->item('auth.allow_register');
 ?>
 
-<div id="login">
-	<h2><?php echo lang('us_login'); ?>
-		</h2>
+<div id="login" class="container">
+	
 
+
+	
+	<div class="row-fluid">
+		<div class="span3"></div>
+	<?php $loginurl = $this->input->get("dest") ? LOGIN_URL."?dest=".$this->input->get("dest") : LOGIN_URL; ?>
+	<?php echo form_open($loginurl, array('autocomplete' => 'off','class'=>'no-ajax-submit span6')); ?>
+	<h2 class="title"><?php echo lang('us_login'); ?></h2>
 	<?php echo Template::message(); ?>
-
+	
 	<?php
 		if (validation_errors()) :
 	?>
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="alert alert-error fade in">
-			  <a data-dismiss="alert" class="close">&times;</a>
-				<?php echo validation_errors(); ?>
-			</div>
-		</div>
-	</div>
-	<?php endif; ?>
-	<?php $loginurl = $this->input->get("dest") ? LOGIN_URL."?dest=".$this->input->get("dest") : LOGIN_URL; ?>
-	<?php echo form_open($loginurl, array('autocomplete' => 'off')); ?>
 
+		<div class="alert alert-error fade in">
+		  <a data-dismiss="alert" class="close">&times;</a>
+			<?php echo validation_errors(); ?>
+		</div>
+
+	<?php endif; ?>
 		<div class="control-group <?php echo iif( form_error('login') , 'error') ;?>">
 			<div class="controls">
 				<input style="width: 95%" type="text" name="login" id="login_value" value="<?php echo set_value('login'); ?>" tabindex="1" placeholder="<?php echo $this->settings_lib->item('auth.login_type') == 'both' ? lang('bf_username') .'/'. lang('bf_email') : ucwords($this->settings_lib->item('auth.login_type')) ?>" />
@@ -61,7 +62,8 @@
 
 		</div>
 	<?php echo form_close(); ?>
-
+	<div class="span3"></div>
+</div>
 	<?php // show for Email Activation (1) only
 		if ($this->settings_lib->item('auth.user_activation_method') == 1) : ?>
 	<!-- Activation Block -->

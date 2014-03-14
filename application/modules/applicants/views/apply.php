@@ -1,4 +1,3 @@
-<div class="container-ajax small">
 	<?php
 
 	$validation_errors = validation_errors();
@@ -12,7 +11,6 @@
 	$id = isset($applicants['id']) ? $applicants['id'] : '';
 
 	?>
-	<div class="admin-box">
 		<h2 class="title">Count me in for <?php print $project->title;?>!</h2>
 		<h4>
 			<p>
@@ -48,5 +46,3 @@
 				</div>
 			</fieldset>
 	    <?php echo form_close(); ?>
-	</div>
-</div>

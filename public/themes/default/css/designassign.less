@@ -171,6 +171,7 @@ body {
 
 }
 
+
 .form-actions-right {
 	text-align:right;
 	.close-mfp {
@@ -546,11 +547,25 @@ button {
 
 .mfp-wrap.white-popup-block {
 	.mfp-content {
+			
 		h1,h2,h3,h4,h5 {
 			color:@darkBlue;
 			margin-top:0;
 		}
+
+		.container-ajax {
+			.container {
+				margin:0;
+				padding:0;
+				
+			}
+			.form-actions {
+				margin-bottom:0;
+				padding-bottom:0;
+			}
+		}
 	}
+
 }
 
 .control-group {
@@ -563,6 +578,10 @@ button {
 		p {
 			margin:0;
 		}
+	}
+	.faux-input {
+		padding:6px;
+		display:inline-block;
 	}
 }
 .form-actions {
@@ -579,5 +598,40 @@ input[type=checkbox],
 input[type=radio] {
 	+ label {
 		display:inline-block;
+	}
+}
+
+.share-widget {
+	float:right;
+	li {
+		background:@darkBlue;
+		color:#FFF;
+		margin-bottom:.7em;
+		a {
+			color:#FFF;
+			cursor:pointer;
+			&:hover {
+				text-decoration:none;
+			}
+			i {
+				padding:3px;
+				border-right:1px solid #FFF;
+				text-align:center;
+				width:20px;
+			}
+			span {
+				display:inline-block;
+				padding:0px 13px 0px 10px;
+			}
+		}
+	}
+	&.list-inline {
+		float:none;
+		margin-top:1em;
+		display:inline-block;
+		li {
+			display:inline-block;
+			margin-right:10px;
+		}
 	}
 }

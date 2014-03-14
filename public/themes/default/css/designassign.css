@@ -1880,11 +1880,23 @@ button i {
   color: #1b75bb;
   margin-top: 0;
 }
+.mfp-wrap.white-popup-block .mfp-content .container-ajax .container {
+  margin: 0;
+  padding: 0;
+}
+.mfp-wrap.white-popup-block .mfp-content .container-ajax .form-actions {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 .control-group .control-label.faux {
   padding-top: 0;
 }
 .control-group .help-inline p {
   margin: 0;
+}
+.control-group .faux-input {
+  padding: 6px;
+  display: inline-block;
 }
 .form-actions {
   background: transparent;
@@ -1898,4 +1910,38 @@ label {
 input[type=checkbox] + label,
 input[type=radio] + label {
   display: inline-block;
+}
+.share-widget {
+  float: right;
+}
+.share-widget li {
+  background: #1b75bb;
+  color: #FFF;
+  margin-bottom: .7em;
+}
+.share-widget li a {
+  color: #FFF;
+  cursor: pointer;
+}
+.share-widget li a:hover {
+  text-decoration: none;
+}
+.share-widget li a i {
+  padding: 3px;
+  border-right: 1px solid #FFF;
+  text-align: center;
+  width: 20px;
+}
+.share-widget li a span {
+  display: inline-block;
+  padding: 0px 13px 0px 10px;
+}
+.share-widget.list-inline {
+  float: none;
+  margin-top: 1em;
+  display: inline-block;
+}
+.share-widget.list-inline li {
+  display: inline-block;
+  margin-right: 10px;
 }

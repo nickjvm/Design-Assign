@@ -78,9 +78,10 @@ $config['user_meta_fields'] =  array(
 		)
 	),
 	array(
-		'label' =>	'Company/Organization Name',
-		'rules'	=>	'trim|required',
+		'label' =>	'Organization Name',
+		'rules'	=>	'trim',
 		'name'	=> 'organization',
+		'wrapper_class'=>'nonprofit extra',
 		'form_detail'	=> array(
 			'type'=>'input',
 			'settings' => array(
@@ -95,6 +96,7 @@ $config['user_meta_fields'] =  array(
 		'name'=>'501_status',
 		'label'=>"",
 		'rules'=>"",
+		'wrapper_class'=>'nonprofit extra',
 		'form_detail'=>array(
 			'type'=>'checkbox',
 			'settings'=>array(

@@ -66,7 +66,7 @@ class Users extends Front_Controller
 		// if the user is not logged in continue to show the login page
 		if ($this->auth->is_logged_in() === FALSE)
 		{
-			if (isset($_POST['log-me-in']))
+			if (isset($_POST['log-me-in']) || isset($_POST['submit']))
 			{
 				$remember = $this->input->post('remember_me') == '1' ? TRUE : FALSE;
 
@@ -87,24 +87,40 @@ class Users extends Front_Controller
 						cases where we are presenting different information to different
 						roles that might cause the base destination to be not available.
 					*/
+
+
+						
 					if($this->input->get("dest")) {
+						if($this->input->is_ajax_request()) {
+							print json_encode(array("dest"=>$this->input->get("dest")));
+							return;
+						}
 						Template::redirect($this->input->get("dest"));
 					} 
 					if ($this->settings_lib->item('auth.do_login_redirect') && !empty ($this->auth->login_destination))
 					{
+						if($this->input->is_ajax_request()) {
+							print json_encode(array("dest"=>$this->auth->login_destination));
+							return;
+						}
 						Template::redirect($this->auth->login_destination);
 					}
 					else
 					{
 						if (!empty($this->requested_page))
 						{
+							if($this->input->is_ajax_request()) {
+								print json_encode(array("dest"=>$this->requested_page));
+								return;
+							}
 							Template::redirect($this->requested_page);
 						}
 						else
 						{
-							print $this->requested_page;
-							print $this->previous_page;
-							die();
+							if($this->input->is_ajax_request()) {
+								print json_encode(array("dest"=>"/"));
+								return;
+							}
 							Template::redirect('/');
 						}
 					}
@@ -471,7 +487,9 @@ class Users extends Front_Controller
 					$meta_data[$field['name']] = $this->input->post($field['name']);
 				}
 			}
-
+			if($meta_data['category'] == 'non-profit') {
+				$this->form_validation->set_rules('organization','Organization','required');
+			}
 			if ($this->form_validation->run() !== FALSE)
 			{
 				// Time to save the user...

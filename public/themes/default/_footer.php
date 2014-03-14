@@ -18,7 +18,7 @@
 	      <h4>Connect</h4>
 	      <ul class="inline connect">
 	        <li>
-	          <a href="#">
+	          <a href="mailto:designassign@aigaiowa.org" target="_blank">
 	            <span class="fa-stack fa-2x">
 	              <i class="fa fa-circle fa-stack-2x"></i>
 	              <i class="fa fa-stack-1x fa-envelope"></i>
@@ -26,7 +26,7 @@
 	          </a>
 	        </li>
 	        <li>
-	          <a href="http://facebook.com">
+	          <a href="https://www.facebook.com/AIGAIowa" target="_blank">
 	            <span class="fa-stack fa-2x">
 	              <i class="fa fa-circle fa-stack-2x"></i>
 	              <i class="fa fa-stack-1x fa-facebook"></i>
@@ -34,7 +34,7 @@
 	          </a>
 	        </li>
 	        <li>
-	          <a href="http://twitter.com">
+	          <a href="http://twitter.com/AIGAIowa" target="_blank">
 	            <span class="fa-stack fa-2x">
 	              <i class="fa fa-circle fa-stack-2x"></i>
 	              <i class="fa fa-stack-1x fa-twitter"></i>

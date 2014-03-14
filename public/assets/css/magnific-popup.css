@@ -433,6 +433,11 @@ img.mfp-img {
   position: relative;
   box-shadow: 0 0 15px 1px #ccc;
 }
+.white-popup-block .container.container-ajax .container {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
 .white-popup-block .container.large {
   max-width: 750px;
 }

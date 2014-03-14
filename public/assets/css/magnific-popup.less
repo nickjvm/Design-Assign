@@ -380,7 +380,11 @@ img.mfp-img {
   margin: 40px auto;
   position: relative;
     box-shadow:0 0 15px 1px #ccc;
-  
+    &.container-ajax .container {
+      padding:0;
+      margin:0;
+      box-shadow:none;
+    }
   &.large {
     max-width:750px;
   }
