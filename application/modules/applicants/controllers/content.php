@@ -64,9 +64,11 @@ class content extends Admin_Controller
 		}
 
 		$records = $this->applicants_model->find_all();
-		foreach($records as $record) {
-			$record->project = $this->projects_model->find($record->project_id);
-			$record->organization = $this->user_model->find_user_and_meta($record->project->created_by)->organization;
+		if(is_array($records)) {
+			foreach($records as $record) {
+				$record->project = $this->projects_model->find($record->project_id);
+				$record->organization = $this->user_model->find_user_and_meta($record->project->created_by)->organization;
+			}
 		}
 		Template::set('records', $records);
 		Template::set('toolbar_title', 'Manage Applicants');

@@ -1,4 +1,7 @@
 		<?php foreach ($meta_fields as $field):?>
+			<?php if (isset($field['wrapper_class'])): ?>
+				<div class="<?php print $field['wrapper_class']; ?>">
+			<?php endif; ?>
 			<?php if ((isset($field['admin_only']) && $field['admin_only'] === TRUE && isset($current_user) && $current_user->role_id == 1)
 						|| !isset($field['admin_only']) || $field['admin_only'] === FALSE): ?>
 			<?php
@@ -19,8 +22,7 @@
 						?>
 						<ul class="form-list list-unstyled">
 						<?php foreach($field['form_detail']['options'] as $option):
-						$checked = (isset($user->$field['name']) && $option['value'] == set_value($field['name'], isset($user->$field['name']) ? $user->$field['name'] : '')) ? TRUE : FALSE;
-
+						$checked = ($option['value'] == set_value($field['name'], isset($user->$field['name']) ? $user->$field['name'] : '')) ? TRUE : FALSE;
 						$option['settings']['name'] = $field['name'];
 								echo "<li>";
 								echo $form_method($option['settings'], $option['value'], $checked);
@@ -69,4 +71,7 @@
 			endif;
 			?>
 			<?php endif;?>
+			<?php if (isset($field['wrapper_class'])): ?>
+			</div>
+			<?php endif; ?>
 		<?php endforeach; ?>

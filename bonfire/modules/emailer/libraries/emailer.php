@@ -127,7 +127,7 @@ class Emailer
 	{
 		// Make sure we have the information we need.
 		$to = isset($data['to']) ? $data['to'] : FALSE;
-		$from = settings_item('sender_email');
+		$from = isset($data['from']) ? $data['from'] : settings_item('sender_email');
 		$subject = isset($data['subject']) ? $data['subject'] : FALSE;
 		$message = isset($data['message']) ? $data['message'] : FALSE;
 		$alt_message = isset($data['alt_message']) ? $data['alt_message'] : FALSE;
@@ -216,10 +216,15 @@ class Emailer
 		$this->ci->load->library('email');
 		$this->ci->load->model('settings/settings_model', 'settings_model');
 		$this->ci->email->initialize($this->ci->settings_model->select('name,value')->find_all_by('module', 'email'));
-
+		$this->ci->email->reply_to(settings_item('sender_email'));
 		$this->ci->email->set_newline("\r\n");
 		$this->ci->email->to($to);
-		$this->ci->email->from($from, settings_item('site.title'));
+		if(is_array($from)) {
+			$this->ci->email->from(settings_item('sender_email'), $from['name']." via Design Assign");
+			$this->ci->email->reply_to($from['email']);
+		} else {
+			$this->ci->email->from($from, settings_item('site.title'));
+		}
 		$this->ci->email->subject($subject);
 		$this->ci->email->message($message);
 

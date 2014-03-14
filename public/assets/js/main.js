@@ -76,34 +76,50 @@ $(document).ready(function() {
 	};
 
 	var bindMagnificLinks = function() {
-			$("#login_value").focus();
+		$("#login_value").focus();
+		$.each($(".magnific"),function() {
+			$(this).on("click",function(e) {
+				e.preventDefault();
+			})
+			if(!$(this).data("magnificPopup")) {
+				$(this).magnificPopup({
+					type: 'ajax',
+					overflowY: 'scroll',
+					mainClass:"white-popup-block",
+					callbacks: {
+						ajaxContentAdded:bindMagnificLinks
+					}
 
-		$(".magnific").magnificPopup({
-			type: 'ajax',
-			overflowY: 'scroll',
-			mainClass:"white-popup-block",
-			callbacks: {
-				ajaxContentAdded:bindMagnificLinks
+				});
+				
 			}
-
-		});
-
+		})
 		$(".mfp-cancel",".mfp-content").on("click",function(e) {
 			e.preventDefault();
 			$.magnificPopup.close();
 		});
 
-		$(".container-ajax form").on("submit",function(e) {
-			e.preventDefault();
-			var self = $(this);
-			var formData = $(this).serializeArray();
-			formData.push({name:'submit',value:'ajax'});
-			$.ajax({
-				data:formData,
-				type:"POST",
-				url:self.attr("action"),
+		
+	};
 
-			}).done(function(data) {
+	$(document).on("submit",".container-ajax form",function(e) {
+		e.preventDefault();
+		var self = $(this);
+		var formData = $(this).serializeArray();
+
+		formData.push({name:'submit',value:'ajax'});
+		$.ajax({
+			data:formData,
+			type:"POST",
+			url:self.attr("action"),
+
+		}).done(function(data) {
+			try {
+				json = $.parseJSON(data);
+				if(json.dest) {
+					window.location = json.dest;
+				}
+			} catch(e) {
 				var mfp = $.magnificPopup.instance
 
 				mfp.items[0] = {
@@ -113,18 +129,30 @@ $(document).ready(function() {
 
 				mfp.updateItemHTML();
 				bindMagnificLinks();
-				
-			})
+			}
 		})
-	};
-
+	})
 	bindMagnificLinks();
 
-
+	$(document).on("click",".social",function(e) {
+		e.preventDefault();
+		window.open($(this).attr("href"), "popupWindow", "width=600,height=215,scrollbars=no");
+	});
+	
 	$(document).on("click",".close-mfp",function(e){
 		e.preventDefault();
 		$.magnificPopup.close();
 	});
+	$("input[name=category]").change(function() {
+		var val = $("input[name=category]:checked").val();
+		console.log(val)
+		if(val == "non-profit") {
+			$('.nonprofit.extra').show();
+		} else {
+			$('.nonprofit.extra').hide();
+		}
+	})
+	$("input[name=category]").trigger("change");
 	slideshow.Init();
 });
 

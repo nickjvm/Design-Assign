@@ -36,13 +36,70 @@ class Projects extends Front_Controller
         public function project($id,$action = null)
         {
             $this->load->helper('typography');
+            $this->load->library('form_validation');
 
             $project = $this->projects_model->order_by('created_on', 'asc')
                                       ->limit(1)
                                       ->find($id);
             if($action == "apply") {
                 $this->apply($id,$this->current_user);
-            }                         
+                return;
+            }            
+            if($action == "share") {
+                  $this->form_validation->set_rules('share_to', 'To', 'required');
+                  $this->form_validation->set_rules('share_message', 'Message', 'required');
+
+                if(!$this->input->post("submit") || $this->form_validation->run() == FALSE) {
+                  Template::set("project",$project);
+                  Template::set_view("share");
+                  Template::render();
+                } else {
+                    $message = '';
+                    $error = false;
+                    $type = 'success';
+                    $site_title = $this->settings_lib->item('site.title');
+                    $error = false;
+                    $default_message = '<p>'.site_url('projects/project/'.$id).'</p><p>---</p><p>Design Assign is a collaborative partnership that gives back to the greater Des Moines area community through design. Alongside AIGA Iowa, area creatives (like you!) use their talents to provide local non-profit organizations with communications products that can help raise awareness and funds.</p>';
+                    $subject    =  str_replace('[SITE_TITLE]',$this->settings_lib->item('site.title'),lang('us_account_reg_complete'));
+                    $email_mess   = $this->load->view('_emails/share', array(
+                      'title'=>$site_title,
+                      'link' => site_url(),
+                      'body' => $this->input->post("share_message").$default_message
+                      ), true);
+
+                    $this->load->library('emailer/emailer');
+                    $data = array(
+                      'to'      => $this->input->post("share_to"),
+                      'subject' => "Check out this Design Assign project!",
+                      'message' => nl2br($email_mess),
+                      'from'    =>array(
+                        'name'    =>$this->current_user->meta->first_name.' '.$this->current_user->meta->last_name,
+                        'email'   =>$this->current_user->email
+                        )
+                      );
+                    if (!$this->emailer->send($data))
+                    {
+                      $message .= lang('us_err_no_email'). $this->emailer->error;
+                      $error    = true;
+                    }
+
+                    if ($error)
+                    {
+                      $type = 'error';
+                    }
+                    else
+                    {
+                      $type = 'success';
+                      log_activity($this->current_user->id, "Shared project via email", 'projects');
+                    }
+                    
+                    Template::set("project",$project);
+                    Template::set("email_sent",$this->input->post("share_to"));
+                    Template::set_view("share");
+                    Template::render();
+                  }
+                return;
+            }                 
             if(!$this->is_valid_applicant($id)) {
               Template::set_message('You have already applied to volunteer on this project. We will contact you by May XXX if you are a match.', 'info');
 

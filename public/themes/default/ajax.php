@@ -1,11 +1,6 @@
-<div class="container">
-	<div class="row">
-	    <?php
-	        echo Template::message();
-		?>
-	</div>
+<div class="container container-ajax">
+
 	<?php
 	    echo isset($content) ? $content : Template::content();
 	?>
-
 </div>
