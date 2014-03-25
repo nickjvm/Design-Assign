@@ -1610,7 +1610,6 @@ h4 {
 .call-to-action h4 {
   font-size: 1.6em;
   color: #1b75bb;
-  text-transform: lowercase;
 }
 .call-to-action .fa-chevron-circle-right {
   color: #e1e1e1;
@@ -1894,6 +1893,9 @@ button i {
 .control-group .help-inline p {
   margin: 0;
 }
+.control-group input + .help {
+  margin-top: -8px;
+}
 .control-group .faux-input {
   padding: 6px;
   display: inline-block;
@@ -1906,6 +1908,9 @@ button i {
 }
 label {
   color: #1b75bb;
+}
+label .help-inline {
+  vertical-align: inherit;
 }
 input[type=checkbox] + label,
 input[type=radio] + label {

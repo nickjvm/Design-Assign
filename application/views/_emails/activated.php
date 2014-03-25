@@ -18,6 +18,9 @@ with communications products that can help raise awareness and funds.
 <?php else: ?>
 	<p><a href="<?php echo $link ?>">Log in now</a> to get started!</p>
 <?php endif; ?>
+
+<p>If you have any questions, feel free to email <a href="mailto:designassign@aigaiowa.org">designassign@aigaiowa.org</a></p>
+
 <p>Thank you,<br/>
 	The <?php print $title;?> team
 </p>

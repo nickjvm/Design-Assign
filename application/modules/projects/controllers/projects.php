@@ -101,7 +101,7 @@ class Projects extends Front_Controller
                 return;
             }                 
             if(!$this->is_valid_applicant($id)) {
-              Template::set_message('You have already applied to volunteer on this project. We will contact you by May XXX if you are a match.', 'info');
+              Template::set_message('You have already applied to volunteer for this project. We will contact you in June if you are a match.', 'info');
 
             }
               Template::set('valid_applicant',$this->is_valid_applicant($id));
@@ -115,6 +115,8 @@ class Projects extends Front_Controller
 
         public function create()
         {
+          $this->load->library('form_validation');
+
           if(!$this->auth->is_logged_in()) {
             $this->auth->restrict('Bonfire.ProjectBriefs.Apply',site_url('projects/create'),"Please log in to post a project");
 
@@ -128,8 +130,10 @@ class Projects extends Front_Controller
                    'body'  => $this->input->post('body'),
                    'hours'  => $this->input->post('hours'),
                    'type'  => $this->input->post('type'),
+                   'type_specify'  => $this->input->post('type_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),
+                   'budget_specify'  => $this->input->post('budget_specify'),
                    'message'  => $this->input->post('message'),
                    'deliverables'  => $this->input->post('deliverables'),
                    'deadlines'  => $this->input->post('deadlines'),
@@ -137,6 +141,12 @@ class Projects extends Front_Controller
                    'created_by' => $this->current_user->id
                );
 
+               if(strtolower($data['type']) == "other") {
+                  $this->form_validation->set_rules('type_specify', 'Specific Project Type', 'required');
+               }
+               if(strtolower($data['budget']) == "other") {
+                  $this->form_validation->set_rules('budget_specify', 'Estimated Budget', 'required');
+               }
                if ($this->projects_model->insert($data))
                {
                    Template::set_message('You post was successfully submitted for approval. Once approved, it will appear in the list below.', 'success');

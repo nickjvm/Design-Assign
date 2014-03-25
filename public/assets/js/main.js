@@ -143,6 +143,17 @@ $(document).ready(function() {
 		e.preventDefault();
 		$.magnificPopup.close();
 	});
+
+	$("select.select-or-other").on("change",function() {
+		var $this = $(this),
+			$toggledElement = $this.next();
+		if($this.val().toLowerCase() == "other") {
+			$toggledElement.removeClass("hidden");
+		} else {
+			$toggledElement.addClass("hidden").find("input").val("");
+		}
+	}).trigger("change");
+
 	$("input[name=category]").change(function() {
 		var val = $("input[name=category]:checked").val();
 		console.log(val)

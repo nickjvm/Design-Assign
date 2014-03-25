@@ -49,6 +49,20 @@ $config['user_meta_fields'] =  array(
 			)
 		),
 	array(
+		'name'=>'phone',
+		'label'=>'Phone Number',
+		'rules'=>'trim|required',
+		'form_detail'=>array(
+			'type'=>"input",
+			'settings'=>array(
+				'id'=>'phone',
+				'name'=>'phone',
+				'maxlength'=>'15',
+				'class'=>'span6'
+				)
+			)
+		),
+	array(
 		'name'   => 'category',
 		'label' => 'I am a...',
 		'rules'   => 'trim|required',
@@ -94,7 +108,7 @@ $config['user_meta_fields'] =  array(
 	),
 	array(
 		'name'=>'501_status',
-		'label'=>"",
+		'label'=>"501(c)3 Status",
 		'rules'=>"",
 		'wrapper_class'=>'nonprofit extra',
 		'form_detail'=>array(

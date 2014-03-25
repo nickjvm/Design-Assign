@@ -26,14 +26,15 @@
 	<tr>
 		<td style="background-color:#FFF;border-bottom:1px solid #CCC;color: #333;text-align:left;" align="center">
 			<a href="<?php print isset($link) ? $link : ''; ?>">
-				<img width="100" height="60" border="0" src="http://designassign.nikosquad.net/themes/default/images/logo.png<?php //print site_url("themes/default/images/logo.png"); ?>" alt="Design Assign"/>
-			</a>
+				<img width="100" height="60" border="0" src="<?php print site_url("themes/default/images/logo.png"); ?>" alt="Design Assign"/></a>
+			<a href="<?php print isset($link) ? $link : ''; ?>">
+				<img style="margin-left:10px;" width="142" height="60" border="0" src="<?php print site_url('assets/images/aiga-dark.png'); ?>" alt="AIGA Iowa"></a>
 		</td>
 	</tr>
 
 </table>
 
 
-<table width="550" cellpadding="20" cellspacing="0" bgcolor="#FFFFFF">
+<table width="550" style="font-size:12px;color:#000000;line-height:150%;font-family:Helvetica,arial,sans-serif;" cellpadding="20" cellspacing="0" bgcolor="#FFFFFF">
 	<tr>
-		<td bgcolor="#FFFFFF" valign="top" style="font-size:12px;color:#000000;line-height:150%;font-family:Helvetica,arial,sans-serif;">
+		<td bgcolor="#FFFFFF" valign="top" style="">

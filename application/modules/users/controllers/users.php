@@ -494,6 +494,7 @@ class Users extends Front_Controller
 			}
 			if($meta_data['category'] == 'non-profit') {
 				$this->form_validation->set_rules('organization','Organization','required');
+				$this->form_validation->set_rules('501_status','501(c)3 Status','required');
 			}
 			if ($this->form_validation->run() !== FALSE)
 			{
@@ -593,9 +594,6 @@ class Users extends Front_Controller
 
 					if (!$this->emailer->send($data))
 					{
-						print "<pre>";
-						print_r($this->emailer);
-						die();
 						$message .= lang('us_err_no_email'). $this->emailer->errors	;
 						$error    = true;
 					}

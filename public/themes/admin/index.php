@@ -1,5 +1,7 @@
 <?php
-	Assets::add_js( array( 'bootstrap.min.js', 'jwerty.js'), 'external', true);
+	Assets::add_js( array( 'bootstrap.min.js', 'jwerty.js','jquery.ba-dotimeout.js',
+        'jquery.magnific-popup.js',
+        'main.js'), 'external', true);
 ?>
 <?php echo theme_view('partials/_header'); ?>
 

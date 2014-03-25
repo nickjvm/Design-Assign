@@ -258,7 +258,6 @@ h4 {
 	h4 {
 		font-size:1.6em;
 		color:@darkBlue;
-		text-transform:lowercase;
 	}
 	.fa-chevron-circle-right {
 		color:@mediumGray;
@@ -579,6 +578,9 @@ button {
 			margin:0;
 		}
 	}
+	input + .help {
+		margin-top:-8px;
+	}
 	.faux-input {
 		padding:6px;
 		display:inline-block;
@@ -592,6 +594,9 @@ button {
 }
 label {
 	color:@darkBlue;
+	.help-inline {
+		vertical-align:inherit;
+	}
 }
 
 input[type=checkbox],

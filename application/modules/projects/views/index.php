@@ -7,10 +7,7 @@
             </div>
         	<?php if (isset($projects) && is_array($projects)) :?>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                laborum.
+                Ready to volunteer? View all currently available projects below. Click “Read more” for more information and to apply for the project.
             </p>
         </div>
     </div>
@@ -42,7 +39,7 @@
     </div>
 <?php else : ?>
     <div class="alert alert-info">
-        No projects were found.
+        We are currently seeking projects from our non-profit partners. Check back soon to volunteer for needed projects!
     </div>
 <?php endif; ?>
 </div>

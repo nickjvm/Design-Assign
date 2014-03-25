@@ -17,7 +17,8 @@
 				</span>
 				<div class="message">
 				  <h4>
-				  	Creative Volunteers	  </h4>
+				  	Creative volunteers
+				  </h4>
 				  <p>
 				  	Are you a graphic designer, web designer, photographer, copywriter or marketer extraordinnaire? Have some free time that you want to give back to the community?	 	 	 	</p>
 				  <a class="btn btn-link pull-right" href="<?php print site_url('projects');?>">
@@ -32,9 +33,10 @@
 				</span>
 				<div class="message">
 				  <h4>
-				  	Non-profit organizations	  </h4>
+				  	Non-profit organizations
+				  </h4>
 				  <p>
-				  	Is your organization a registered 501(c)3 located in the Des Moines metro? Do you have a shoe string budget with more needs than money?	 	 	 	</p>
+				  	Is your organization a registered 501(c)3 located in the Des Moines metro? Do you have a shoe string budget with more needs than funding? 	 	 	</p>
 				  <a class="btn btn-link pull-right" href="<?php print site_url('projects/create');?>">
 				    Submit a project request<i class="fa fa-chevron-circle-right fa-2x"></i>
 				  </a>
@@ -47,7 +49,7 @@
 				</span>
 				<div class="message">
 				  <h4>
-				  	Learn More	  </h4>
+				  	Learn more	  </h4>
 				  <p>
 				  	Not sure where to go next? Want to learn more about Design Assign and the process?</p>
 				  <a class="btn btn-link pull-right" href="<?php print site_url('who-we-are');?>">

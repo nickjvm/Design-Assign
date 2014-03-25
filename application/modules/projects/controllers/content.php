@@ -49,7 +49,10 @@ class Content extends Admin_Controller
 					foreach ($checked as $pid)
 					{
 						$this->projects_model->skip_validation(true);
-						$result = $this->projects_model->update($pid,array('approved'=>1));
+						$project = $this->projects_model->find($pid);
+						if(!$project->approved) {
+							$result = $this->projects_model->update($pid,array('approved'=>1));
+						}
 					}
 
 					if ($result)
@@ -104,8 +107,10 @@ class Content extends Admin_Controller
                    'body'  => $this->input->post('body'),
                    'hours'  => $this->input->post('hours'),
                    'type'  => $this->input->post('type'),
+                   'type_specify'  => $this->input->post('type_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),
+                   'budget_specify'  => $this->input->post('budget_specify'),
                    'message'  => $this->input->post('message'),
                    'deliverables'  => $this->input->post('deliverables'),
                    'deadlines'  => $this->input->post('deadlines'),
@@ -126,7 +131,7 @@ class Content extends Admin_Controller
 
 		    Template::set('post', $this->projects_model->find($id));
 
-		    Template::set('toolbar_title', 'Edit Post');
+		    Template::set('toolbar_title', 'Edit Project');
 		    Template::set_view('content/post_form');
 		    Template::render();
 		}

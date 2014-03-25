@@ -49,14 +49,12 @@ $fieldData = array(
 
         <aside class="span4">
             <h3>how we match teams</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt  ut labore et dolore magna aliqua. Ut enim ad 
-            inim veniam, quis nostrud exercitation ullamco 
-            aboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate 
-            velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, 
-            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>After applications close for creative volunteers on May 30, Design Assign committee 
+                members will meet to review all applications. Teams are made by determining the best 
+                fit based on application data. We encourage creatives to volunteer for more than one 
+                project. Creatives will not be matched on more than one project unless specially 
+                arranged with Design Assign.
+            </p>
         </aside>
 
     </div>

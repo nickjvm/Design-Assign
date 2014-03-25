@@ -1,42 +1,27 @@
-<h2>Upcoming Events</h2>
+<h2>Upcoming events</h2>
 <ul class="list-unstyled upcoming-events">          
 	<li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-03-01T00:00:00-08:00">03.01</span></span>    
-          <span class="span9">Applications open</span>  
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-04-01T00:00:00-08:00">April 1, 2014</span></span>    
+          <span class="span8">Applications open</span>  
       </li>
           
       <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-04-30T00:00:00-07:00">04.30</span></span>    
-          <span class="span9">Applications close</span>  
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-16T00:00:00-07:00">May 16, 2014</span></span>    
+          <span class="span8">Applications for non-profits close</span>  
       </li>
           
       <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-15T00:00:00-07:00">05.15</span></span>    
-          <span class="span9">Match Notifications</span>  
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-30T00:00:00-07:00">May 30, 2014</span></span>    
+          <span class="span8">Match for volunteers close</span>  
       </li>
           
       <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-20T00:00:00-07:00">05.20</span></span>    
-          <span class="span9">Kick-off workshop</span>  
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-06-14T00:00:00-07:00">June 14, 2014</span></span>    
+          <span class="span8">Kick-off Workshop</span>  
       </li>
-          
+  
       <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-06-15T00:00:00-07:00">06.15</span></span>    
-          <span class="span9">Check-in #1</span>  
-      </li>
-          
-      <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-07-15T00:00:00-07:00">07.15</span></span>    
-          <span class="span9">Check-in #2</span>  
-      </li>
-          
-      <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-09-01T00:00:00-07:00">09.01</span></span>    
-          <span class="span9">Gala information due</span>  
-      </li>
-          
-      <li>  
-          <span class="span3"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-11-01T00:00:00-07:00">11.01</span></span>    
-          <span class="span9">Final culmination gala</span>  
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-10-01T00:00:00-07:00">October, 2014</span></span>    
+          <span class="span8">Concluding gala</span>  
       </li>
   </ul>

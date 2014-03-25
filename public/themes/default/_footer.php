@@ -6,7 +6,9 @@
 		      <h4>Partners</h4>
 		      <ul class="partners-list inline list-unstyled">
 		        <li>
-		          <img src="<?php print img_path().'aiga.png'; ?>"/>
+		          <a href="http://aigaiowa.org">
+		          	<img src="<?php print img_path().'aiga.png'; ?>"/>
+		          </a>
 		        </li>
 		      </ul>
 		      <div class="disclaimer">
