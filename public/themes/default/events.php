@@ -12,7 +12,7 @@
           
       <li>  
           <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-30T00:00:00-07:00">May 30, 2014</span></span>    
-          <span class="span8">Match for volunteers close</span>  
+          <span class="span8">Creative volunteer applications close</span>  
       </li>
           
       <li>  

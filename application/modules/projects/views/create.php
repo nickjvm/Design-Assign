@@ -85,7 +85,7 @@
     <div class="control-group <?php if (form_error('deadlines')) echo 'error'; ?>">
         <label for="deadlines" class="control-label">Known Deadlines <div class="help-inline">(When should this project be completed? Any other dates we need to be aware of?)</div></label>
         <input type="text" id="deadlines" name="deadlines" class="span8" value="<?php echo isset($post) ? $post->deadlines : set_value('deadlines'); ?>" />
-        <div class="help">Please remember that all projects should be completed no later than October 1, 2014.</div>
+        <div class="help"><em>Please remember that all projects should be completed no later than October 1, 2014.</em></div>
     </div>
 
     <div class="control-group <?php if (form_error('goals')) echo 'error'; ?>">
