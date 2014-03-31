@@ -21,7 +21,7 @@
 
 		<?php echo form_open($this->uri->uri_string()); ?>
 			<fieldset>
-				<h4>Project Vounteer Disclaimer</h4>
+				<h4>Project Volunteer Disclaimer</h4>
 				<p>
 					By submitting this application, I understand I am volunteering my services pro-bono 
 					to complete the project as indicated in the project description. If for any reason I 
@@ -39,7 +39,7 @@
 						</div>
 						<?php endif; ?>
 						<input type="checkbox" id="disclaimer" name="disclaimer"/>
-						<label for="disclaimer">I have read and understand the project submission disclaimer.</label>
+						<label for="disclaimer">I have read and understand the project volunteer disclaimer.</label>
 					</div>
 				</div> 
 

@@ -77,7 +77,7 @@ $config['user_meta_fields'] =  array(
 					'settings' => array(
 						'id'		=> 'nonprofit',
 						'class'		=> '',
-						'label'		=> 'Non-Profit Organization'
+						'label'		=> 'Non-profit organization'
 					)
 				),
 				array(
@@ -85,7 +85,7 @@ $config['user_meta_fields'] =  array(
 					'settings' => array(
 						'id'		=> 'creative',
 						'class'		=> '',
-						'label'		=> 'Creative Professional'
+						'label'		=> 'Creative volunteer'
 					)
 				)
 			)			

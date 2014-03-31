@@ -43,6 +43,14 @@
 	            </span>
 	          </a>
 	        </li>
+	        <li>
+	          <a href="https://www.flickr.com/search/?w=33082011%40N02&q=design%20assign" target="_blank">
+	            <span class="fa-stack fa-2x">
+	              <i class="fa fa-circle fa-stack-2x"></i>
+	              <i class="fa fa-stack-1x fa-flickr"></i>
+	            </span>
+	          </a>
+	        </li>
 	      </ul>
 	      <a class="hashtag-search" href="https://twitter.com/search?q=%23designassign">#DesignAssign</a>
 	    </div>
