@@ -1,12 +1,12 @@
 <h2>2014 events</h2>
 <ul class="list-unstyled upcoming-events">          
 	<li>  
-          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-04-01T00:00:00-08:00">April 1</span></span>    
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-04-01T00:00:00-08:00">April 7</span></span>    
           <span class="span8">Applications open</span>  
       </li>
           
       <li>  
-          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-16T00:00:00-07:00">May 16</span></span>    
+          <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-16T00:00:00-07:00">May 7</span></span>    
           <span class="span8">Applications for non-profit organizations close</span>  
       </li>
           

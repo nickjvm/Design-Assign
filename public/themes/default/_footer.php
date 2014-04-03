@@ -1,6 +1,7 @@
 <?php if (!isset($show) || $show==true) : ?>
 
-	<footer class="footer  container">
+	<footer class="footer ">
+		<div class="container">
 		<div class="row">
 	    <div class="span8 partners">
 		      <h4>Partners</h4>
@@ -55,6 +56,7 @@
 	      <a class="hashtag-search" href="https://twitter.com/search?q=%23designassign">#DesignAssign</a>
 	    </div>
 	</div>
+</div>
 	</footer>
 <?php endif; ?>
 

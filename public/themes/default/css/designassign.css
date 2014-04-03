@@ -1623,7 +1623,7 @@ ul.inline > li {
 .fa-7x {
   font-size: 7em;
 }
-footer.container {
+footer {
   border-top: 10px solid #cccccc;
   background: #1b75bb;
   color: #FFF;
@@ -1631,31 +1631,31 @@ footer.container {
   padding-top: 0;
   margin-top: 2em;
 }
-footer.container h4 {
+footer h4 {
   margin-top: 1em;
   font-size: 1.6em;
   color: #FFF;
   margin-bottom: 1em;
 }
-footer.container .disclaimer {
+footer .disclaimer {
   font-size: .9em;
 }
-footer.container .disclaimer p {
+footer .disclaimer p {
   margin-bottom: 0;
 }
-footer.container .connect li:hover {
+footer .connect li:hover {
   opacity: .7;
 }
-footer.container .connect i {
+footer .connect i {
   color: #FFF;
 }
-footer.container .connect i + i {
+footer .connect i + i {
   color: #1b75bb;
 }
-footer.container .hashtag-search {
+footer .hashtag-search {
   color: #FFF;
 }
-footer.container .partners-list {
+footer .partners-list {
   margin: 1em 0 2em 0;
 }
 input[type="radio"],
@@ -1716,7 +1716,7 @@ input[type="checkbox"] {
     left: 0;
     font-size: 50px;
   }
-  footer.container {
+  footer {
     margin: 2em -20px 0 -20px;
   }
   header {
