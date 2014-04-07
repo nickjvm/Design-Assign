@@ -35,7 +35,7 @@ $fieldData = array(
                             Events::trigger('render_user_form', $user );
                             ?>
                             <!-- Start User Meta -->
-                            <?php $this->load->view('users/user_meta', array('frontend_only' => true));?>
+                            <?php $this->load->view('users/user_meta', array('frontend_only' => true,'is_register'=>false));?>
                             <!-- End of User Meta -->
                             <div class="controls">
                                 <input type="submit" name="save" class="btn btn-lg btn-primary" value="<?php echo lang('us_action_save'); ?>" />

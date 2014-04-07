@@ -154,16 +154,31 @@ $(document).ready(function() {
 		}
 	}).trigger("change");
 
-	$("input[name=category]").change(function() {
-		var val = $("input[name=category]:checked").val();
-		console.log(val)
-		if(val == "non-profit") {
-			$('.nonprofit.extra').show();
-		} else {
-			$('.nonprofit.extra').hide();
-		}
-	})
+	var user_category = $("input[name=category][type=radio]").length ? $("input[name=category]:checked").val() : $("input[name=category][type=hidden]").val();
+
+	$("input[name=category][type=radio]").change(function() {
+		user_category = $("input[name=category]:checked").length ? $("input[name=category]:checked").val() : user_category;
+		check_category(user_category);
+	});
+	
+
 	$("input[name=category]").trigger("change");
 	slideshow.Init();
+	check_category(user_category);
+
+
 });
 
+function check_category(val) {
+	console.log(val);
+	if(val == "non-profit") {
+		$('.nonprofit.extra').show();
+		$('.designer.extra').hide();
+	} else if(val =='creative') {
+		$('.nonprofit.extra').hide();
+		$('.designer.extra').show();
+	} else {
+		$('.designer.extra').hide();
+		$('.nonprofit.extra').hide();
+	}
+}

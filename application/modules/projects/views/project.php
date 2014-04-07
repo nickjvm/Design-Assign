@@ -41,11 +41,12 @@
                 </div>
             </li>
         </ul>
-        
-        <?php if(!$current_user || ($current_user->meta->category == "creative" && $valid_applicant)):?>
-        	<a href="<?php print site_url('projects/project/'.$project->brief_id.'/apply');?>" class="<?php print $current_user ? 'magnific ' : '';?> btn btn-lg btn-primary">Volunteer for this project! <i class="fa fa-chevron-circle-right"></i></a>
-            <a class="btn btn-link" href="<?php print site_url('projects'); ?>">Find another project</a>
-       	<?php endif;?>
+        <?php if(! has_permission('Bonfire.ProjectBriefs.Apply')):
+                if(!$current_user || ($current_user->meta->category == "creative" && $valid_applicant)):?>
+        	       <a href="<?php print site_url('projects/project/'.$project->brief_id.'/apply');?>" class="<?php print $current_user ? 'magnific ' : '';?> btn btn-lg btn-primary">Volunteer for this project! <i class="fa fa-chevron-circle-right"></i></a>
+                   <a class="btn btn-link" href="<?php print site_url('projects'); ?>">Find another project</a>
+            <?php endif;?>
+   	    <?php endif;?>
 
 
 <?php else : ?>

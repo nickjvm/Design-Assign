@@ -66,6 +66,7 @@ $config['user_meta_fields'] =  array(
 		'name'   => 'category',
 		'label' => 'I am a...',
 		'rules'   => 'trim|required',
+		'register_only'=>TRUE,
 		'form_detail' => array(
 			'type' => 'radio',
 			'settings' => array(
@@ -106,6 +107,34 @@ $config['user_meta_fields'] =  array(
 			)
 		)
 	),
+
+	array(
+		'name'=>'website',
+		'label'=>'Website',
+		'rules'=>'trim|prep_url|xss_clean',
+		'form_detail'=>array(
+			'type'=>"input",
+			'settings'=>array(
+				'id'=>'website',
+				'name'=>'website',
+				'class'=>'span6'
+				)
+			)
+		),
+	array(
+		'name'=>'skills',
+		'label'=>'Design Skills',
+		'rules'=>'trim|xss_clean',
+		'wrapper_class'=>'designer extra',
+		'form_detail'=>array(
+			'type'=>"textarea",
+			'settings'=>array(
+				'id'=>'skills',
+				'name'=>'skills',
+				'class'=>'span10'
+				)
+			)
+		),
 	array(
 		'name'=>'501_status',
 		'label'=>"501(c)3 Status",

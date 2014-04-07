@@ -274,7 +274,6 @@ class Users extends Front_Controller
 
 		if (isset($_POST['save']))
 		{
-
 			$user_id = $this->current_user->id;
 			if ($this->save_user($user_id, $meta_fields))
 			{
@@ -291,9 +290,16 @@ class Users extends Front_Controller
 						$meta_data[$field['name']] = $this->input->post($field['name']);
 					}
 				}
-
+				if($meta_data['category'] == 'non-profit') {
+					$this->form_validation->set_rules('organization','Organization','required');
+					$this->form_validation->set_rules('501_status','501(c)3 Status','required');
+				} else {
+					$this->form_validation->set_rules('skills','Design Skills','required');
+				}
 				// now add the meta is there is meta data
-				$this->user_model->save_meta_for($user_id, $meta_data);
+				if ($this->form_validation->run() !== FALSE)
+				{
+					$this->user_model->save_meta_for($user_id, $meta_data);
 
 				// Log the Activity
 
@@ -305,6 +311,7 @@ class Users extends Front_Controller
 
 				// redirect to make sure any language changes are picked up
 				Template::redirect('/users/profile');
+				}
 			}
 			else
 			{
@@ -495,6 +502,8 @@ class Users extends Front_Controller
 			if($meta_data['category'] == 'non-profit') {
 				$this->form_validation->set_rules('organization','Organization','required');
 				$this->form_validation->set_rules('501_status','501(c)3 Status','required');
+			} else {
+				$this->form_validation->set_rules('skills','Design Skills','required');
 			}
 			if ($this->form_validation->run() !== FALSE)
 			{

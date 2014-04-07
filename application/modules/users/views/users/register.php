@@ -48,12 +48,7 @@ $fieldData = array(
 
         <aside class="span4">
             <h3>how we match teams</h3>
-            <p>After applications close for creative volunteers on May 30, Design Assign committee 
-                members will meet to review all applications. Teams are made by determining the best 
-                fit based on application data. We encourage creatives to volunteer for more than one 
-                project. Creatives will not be matched on more than one project unless specially 
-                arranged with Design Assign.
-            </p>
+            <p>After applications close for creative volunteers on May 30, Design Assign committee members will meet to review all applications. Teams will be made by determining the best fit based on application data. We encourage creatives to volunteer for more than one project. Creative volunteers will not be matched on more than one project unless specially arranged with Design Assign.</p>
         </aside>
 
     </div>

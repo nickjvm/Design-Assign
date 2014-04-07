@@ -17,7 +17,7 @@
           
       <li>  
           <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-06-14T00:00:00-07:00">June 14</span></span>    
-          <span class="span8">Kick-off Workshop</span>  
+          <span class="span8">Kick-off workshop</span>  
       </li>
   
       <li>  

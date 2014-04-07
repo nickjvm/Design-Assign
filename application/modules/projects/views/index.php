@@ -6,11 +6,13 @@
             	<h2 class="title">Find a project</h2>
             </div>
         	<?php if (isset($projects) && is_array($projects)) :?>
-            <p>
-                Ready to volunteer? View all currently available projects below. Click “Read more” for more information and to apply for the project.
-            </p>
+                <p>
+                    Ready to volunteer? View all currently available projects below. Click “Read more” for more information and to apply for the project.
+                </p>
+            <?php endif; ?>
         </div>
     </div>
+    <?php if (isset($projects) && is_array($projects)) :?>
     <div class="projects row">
         <?php foreach ($projects as $project) : ?>
         <div class="project-brief span3">
@@ -37,9 +39,9 @@
         </div>
         <?php endforeach; ?>
     </div>
-<?php else : ?>
-    <div class="alert alert-info">
-        We are currently seeking projects from our non-profit partners. Check back soon to volunteer for needed projects!
-    </div>
-<?php endif; ?>
+    <?php else : ?>
+        <div class="alert alert-info">
+            We are currently seeking projects from our non-profit partners. Check back soon to volunteer for needed projects!
+        </div>
+    <?php endif; ?>
 </div>
