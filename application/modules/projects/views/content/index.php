@@ -33,7 +33,11 @@
                         </a>
                     </td>
                     <td>
-                        <?php echo $brief->organization; ?>
+                        <?php if(has_permission('Bonfire.Users.Manage')) { ?>
+                            <?php echo anchor('/admin/settings/users/edit/'.$brief->created_by,$brief->organization); ?>
+                            <?php } else { 
+                                echo $brief->organization;
+                            }?>
                     </td>
                     <td>
                         <?php echo $brief->approved ? "<i class='icon-ok'></i>" : ""; ?>

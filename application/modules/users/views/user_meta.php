@@ -69,9 +69,12 @@
 						              'id'          => $field['name'],
 						              'value'       => set_value($field['name'], $user->$field['name']),
 						              'rows' 		=> 3,
-						              'class' 		=> $field['form_detail']['settings']['class']
+						              'class' 		=> $field['form_detail']['settings']['class'],
+						              'placeholder' 		=> $field['form_detail']['settings']['placeholder']
 						            )); ?>
-
+								<?php if(isset($field['helptext'])) { ?>
+									<p class="help-block"><?php print $field['helptext']; ?></p>
+								<?php }?>
 							</div>
 						</div>
 

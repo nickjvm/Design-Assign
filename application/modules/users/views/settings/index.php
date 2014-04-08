@@ -41,7 +41,7 @@ th.status { width: 10em; }
 	</li>
 </ul>
 <?php
-$num_columns = 8;
+$num_columns = 7;
 $has_users = isset($users) && is_array($users) && count($users);
 
 echo form_open();
@@ -53,7 +53,6 @@ echo form_open();
 				<th class='id'><?php echo lang('bf_id'); ?></th>
 				<th><?php echo lang('bf_username'); ?></th>
 				<th><?php echo lang('bf_display_name'); ?></th>
-				<th><?php echo lang('bf_email'); ?></th>
 				<th><?php echo lang('us_role'); ?></th>
 				<th class='last-login'><?php echo lang('us_last_login'); ?></th>
 				<th class='status'><?php echo lang('us_status'); ?></th>
@@ -96,8 +95,9 @@ echo form_open();
 					<span class="label label-warning">Banned</span>
 					<?php endif; ?>
 				</td>
-				<td><?php echo $user->display_name; ?></td>
-				<td><?php echo $user->email ? mailto($user->email) : ''; ?></td>
+				<?php $meta = $this->user_model->find_meta_for($user->id);?>
+
+				<td><?php echo $user->role_id == 7 ? $meta->first_name." ".$meta->last_name: $meta->organization; ?></td>
 				<td><?php echo $roles[$user->role_id]->role_name; ?></td>
 				<td class='last-login'><?php echo $user->last_login != '0000-00-00 00:00:00' ? date('M j, y g:i A', strtotime($user->last_login)) : '---'; ?></td>
 				<td class='status'>

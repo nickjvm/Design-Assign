@@ -1872,6 +1872,9 @@ button i {
   font-size: .9em;
   opacity: .9;
 }
+.help-block:first-child {
+  margin-top: 0;
+}
 .sign-up {
   margin-top: 1em;
 }

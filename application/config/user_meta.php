@@ -123,15 +123,16 @@ $config['user_meta_fields'] =  array(
 		),
 	array(
 		'name'=>'skills',
-		'label'=>'Design Skills',
+		'label'=>'My Skillset Includes...',
 		'rules'=>'trim|xss_clean',
+		'helptext'=>'List any skills you find relevent. For example: Graphic Design, Web Development, Photography, Social Media...',
 		'wrapper_class'=>'designer extra',
 		'form_detail'=>array(
 			'type'=>"textarea",
 			'settings'=>array(
 				'id'=>'skills',
 				'name'=>'skills',
-				'class'=>'span10'
+				'class'=>'span12'
 				)
 			)
 		),

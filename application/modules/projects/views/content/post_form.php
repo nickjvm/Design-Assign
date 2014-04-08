@@ -2,12 +2,11 @@
 
     <?php echo form_open(current_url()); ?>
     <div class="row">
-            <div class="control-group span8 <?php if (form_error('title')) echo 'error'; ?>">
-                <label for="title" class="control-label">Project Name</label>
-                <input type="text" name="title" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->title : set_value('title'); ?>" />
-            </div>
-
+        <div class="control-group span8 <?php if (form_error('title')) echo 'error'; ?>">
+            <label for="title" class="control-label">Project Name</label>
+            <input type="text" name="title" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->title : set_value('title'); ?>" />
         </div>
+
     </div>
     <div class="row">
         <div class="span3">
@@ -109,10 +108,14 @@
     </div>
     <div class="row">
         <div class="control-group span8 <?php if (form_error('body')) echo 'error'; ?>">
+            <ul class="list-unstyled form-list">
+                <li>
                 <label for="approved">
                     <input type="checkbox" id="approved" name="approved" value="1" <?php if(isset($post) && $post->approved) { echo "checked"; }?>/>
                     Approved
                 </label>
+            </li>
+        </ul>
         </div>
     </div>
 
