@@ -147,8 +147,20 @@ class Projects extends Front_Controller
                if(strtolower($data['budget']) == "other") {
                   $this->form_validation->set_rules('budget_specify', 'Estimated Budget', 'required');
                }
-               if ($this->projects_model->insert($data))
+               if ($id = $this->projects_model->insert($data))
                {
+                  $email_mess   = $this->load->view('_emails/project_submitted', array(
+                    'id' => $id,
+                    'author' => $usermeta->organization
+                    ), true);
+                  $this->load->library('emailer/emailer');
+                  $data = array(
+                    'to'    => 'designassign@aigaiowa.org',
+                    'subject' => 'New project submitted for approval',
+                    'message' => $email_mess,
+                  );
+
+                  $this->emailer->send($data);
                    Template::set_message('You post was successfully submitted for approval. Once approved, it will appear in the list below.', 'success');
                    redirect(base_url() .'projects');
                } 

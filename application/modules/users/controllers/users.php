@@ -133,7 +133,14 @@ class Users extends Front_Controller
 		}
 		else
 		{
-
+				
+			if($this->input->get("dest")) {
+				if($this->input->is_ajax_request()) {
+					print json_encode(array("dest"=>$this->input->get("dest")));
+					return;
+				}
+				Template::redirect($this->input->get("dest"));
+			} 
 			Template::redirect('/');
 		}//end if
 
@@ -495,9 +502,13 @@ class Users extends Front_Controller
 					&& (!isset($field['frontend']) || $field['frontend'] === TRUE))
 				{
 					$this->form_validation->set_rules($field['name'], $field['label'], $field['rules']);
-
-					$meta_data[$field['name']] = $this->input->post($field['name']);
+					if($field['name'] == 'website') {
+						$meta_data[$field['name']] = prep_url($this->input->post($field['name']));
+					} else {
+						$meta_data[$field['name']] = $this->input->post($field['name']);
+					}
 				}
+
 			}
 			if($meta_data['category'] == 'non-profit') {
 				$this->form_validation->set_rules('organization','Organization','required');

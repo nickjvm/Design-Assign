@@ -21,7 +21,7 @@
                 <i class="fa fa-check"></i>
             </div>
         <?php endif; ?>
-            <h2><?php e($project->title) ?></h2>
+            <h2 class="ellipsis"><?php e($project->title) ?></h2>
             <ul class="list-unstyled">
             	<li>
             		<span class="label">Organization:</span> 
@@ -31,7 +31,7 @@
             		<?php print $project->hours; ?></li>
             	<li><span class="label">Project Background:</span>
             		<div>
-    	        		<?php echo character_limiter(auto_typography($project->body),60); ?>		
+    	        		<?php echo character_limiter(auto_typography($project->body),50); ?>		
     	        	</div>
     	        </li>
             </ul>

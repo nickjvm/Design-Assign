@@ -1395,6 +1395,11 @@ input[type=file] {
 .navbar {
   border: 0;
 }
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1524,6 +1529,7 @@ aside h4,
 body {
   font-family: "Muli", "Helvetica neue", Helvetica, sans-serif;
   padding-top: 150px;
+  -webkit-font-smoothing: antialiased;
 }
 body.toolbar {
   padding-top: 220px !important;
@@ -1789,6 +1795,8 @@ ol.list-steps li.call-to-action:after {
   vertical-align: top;
   margin-bottom: 2em;
   position: relative;
+  height: 265px;
+  overflow: hidden;
 }
 .projects .project-brief:nth-child(4n) {
   margin-right: 0;
@@ -1843,6 +1851,9 @@ ol.list-steps li.call-to-action:after {
   padding: .5em 1em;
   margin-bottom: .5em;
   font-size: 1.2em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 .projects .project-brief .read-more i {
   vertical-align: middle;
