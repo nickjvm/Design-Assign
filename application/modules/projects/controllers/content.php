@@ -121,6 +121,11 @@ class Content extends Admin_Controller
 		        } else {
 		        	$data['approved'] = 0;
 		        }
+		        if($this->input->post("isClosed")) {
+		        	$data['isClosed'] = 1;
+		        } else {
+		        	$data['isClosed'] = 0;
+		        }
 
 		        if ($this->projects_model->update($id, $data))
 		        {

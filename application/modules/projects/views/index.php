@@ -15,12 +15,12 @@
     <?php if (isset($projects) && is_array($projects)) :?>
     <div class="projects row">
         <?php foreach ($projects as $project) : ?>
-        <div class="project-brief span3">
+        <div class="project-brief span3 <?php if($project->isClosed) { print 'closed'; } ?>">
             <?php if(!$project->valid): ?>
-            <div class="applied" title="Your application for this project has been submitted">
-                <i class="fa fa-check"></i>
-            </div>
-        <?php endif; ?>
+                <div class="applied" title="Your application for this project has been submitted">
+                    <i class="fa fa-check"></i>
+                </div>
+            <?php endif; ?> 
             <h2 class="ellipsis"><?php e($project->title) ?></h2>
             <ul class="list-unstyled">
             	<li>

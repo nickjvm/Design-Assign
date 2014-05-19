@@ -49,8 +49,13 @@ class applicants extends Front_Controller
 	public function apply($project_id)
 	{
 		$this->auth->restrict('Bonfire.ProjectBriefs.Apply',site_url('projects/project/'.$project_id));
-
 		$project = $this->projects_model->find($project_id);
+
+		if($project->isClosed) {
+			Template::set_message('This project has already received many qualified candidates. We encourage you to apply for some of our other great opportunities.', 'info');
+			redirect(base_url() .'projects');
+		}
+
 		Template::set('project', $project);
 		if(isset($_POST['submit'])) {
 			if ($insert_id = $this->save_applicant(0,$project_id))

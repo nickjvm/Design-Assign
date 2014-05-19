@@ -17,8 +17,12 @@ class Projects extends Front_Controller
         {
             $this->load->helper(array('typography','text'));
 
-            $projects = $this->projects_model->order_by('created_on', 'desc')->where('deleted', 0)->where('approved',1)
-                                      ->find_all();
+            $projects = $this->projects_model
+              ->order_by("isClosed","asc")
+              ->order_by('created_on', 'desc')
+              ->where('deleted', 0)
+              ->where('approved',1)
+              ->find_all();
             foreach($projects as $project) {
               if($this->is_valid_applicant($project->brief_id)) {
                 $project->valid = true;
@@ -41,10 +45,16 @@ class Projects extends Front_Controller
             $project = $this->projects_model->order_by('created_on', 'asc')
                                       ->limit(1)
                                       ->find($id);
+
             if($action == "apply") {
+              if(!$project->isClosed) {
                 $this->apply($id,$this->current_user);
                 return;
-            }            
+              } else {
+                  Template::set_message('This project has already received many qualified candidates. We encourage you to apply for some of our other great opportunities.', 'info');
+                  redirect(base_url() .'projects');
+              }
+            } 
             if($action == "share") {
                   $this->form_validation->set_rules('share_to', 'To', 'required');
                   $this->form_validation->set_rules('share_message', 'Message', 'required');

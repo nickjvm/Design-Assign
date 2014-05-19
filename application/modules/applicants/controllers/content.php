@@ -36,8 +36,9 @@ class content extends Admin_Controller
 	 *
 	 * @return void
 	 */
-	public function index()
+	public function index($filter='all')
 	{
+		$projects = $this->projects_model->find_all();
 
 		// Deleting anything?
 		if (isset($_POST['delete']))
@@ -62,16 +63,47 @@ class content extends Admin_Controller
 				}
 			}
 		}
+		$where = array();
+		if (preg_match('{brief_id-([0-9]*)}', $filter, $matches))
+		{
+			$filter_type = 'brief_id';
+			$brief_id = (int) $matches[1];
+			$where['applicants.project_id'] = $brief_id;
+			$records = $this->applicants_model->order_by("project_id","asc")->find_all_by($where);
+		} else {
+			$records = $this->applicants_model->order_by("project_id","asc")->find_all();
+			$filter_type = 'all';
+		}
 
-		$records = $this->applicants_model->find_all();
+		$records_with_applicants = array();
+
 		if(is_array($records)) {
 			foreach($records as $record) {
 				$record->project = $this->projects_model->find($record->project_id);
 				$record->organization = $this->user_model->find_user_and_meta($record->project->created_by)->organization;
+				if(!in_array($record->project_id,$records_with_applicants)) {
+					$records_with_applicants[] = $record->project_id;
+				}
+			}
+		}
+
+		if(is_array($projects)) {
+			foreach($projects as $project) {
+				if($this->applicants_model->project_has_applicants($project->brief_id)) {
+					$project->has_applicants = true;
+				} else {
+					$project->has_applicants = false;
+				}
+				$project->organization = $this->user_model->find_user_and_meta($project->created_by)->organization;
 			}
 		}
 		Template::set('records', $records);
+		Template::set('records_with_applicants', $records_with_applicants);
+		Template::set('projects', $projects);
 		Template::set('toolbar_title', 'Manage Applicants');
+		Template::set('index_url', site_url(SITE_AREA .'/content/applicants/') .'/');
+		Template::set('filter_type', $filter_type);
+
 		Template::render();
 	}
 

@@ -110,12 +110,18 @@
         <div class="control-group span8 <?php if (form_error('body')) echo 'error'; ?>">
             <ul class="list-unstyled form-list">
                 <li>
-                <label for="approved">
-                    <input type="checkbox" id="approved" name="approved" value="1" <?php if(isset($post) && $post->approved) { echo "checked"; }?>/>
-                    Approved
-                </label>
-            </li>
-        </ul>
+                    <label for="approved">
+                        <input type="checkbox" id="approved" name="approved" value="1" <?php if(isset($post) && $post->approved) { echo "checked"; }?>/>
+                        Approved
+                    </label>
+                </li>
+                <li>
+                    <label for="isClosed">
+                        <input type="checkbox" id="isClosed" name="isClosed" value="1" <?php if(isset($post) && $post->isClosed) { echo "checked"; }?>/>
+                        Applications Closed
+                    </label>
+                </li>
+            </ul>
         </div>
     </div>
 

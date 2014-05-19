@@ -1828,6 +1828,10 @@ ol.list-steps li.call-to-action:after {
   color: #FFF;
   font-size: 1.4em;
 }
+.projects .project-brief.closed h2 {
+  background: #e1e1e1;
+  color: #666666;
+}
 .projects .project-brief ul {
   padding: 1em 1em 0 1em;
   margin: 0;

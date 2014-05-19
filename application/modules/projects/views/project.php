@@ -40,7 +40,14 @@
             <?php if($project->hours != "Help") {?>
                 <li>Estimated Hours: <?php print $project->hours;?></li>
             <?php }?>
-            <li>Materials Budget: <?php print $project->budget == "other" ? $project->budget_specify : $project->budget != "unknown" ? "$".$project->budget : ''.$project->budget; ?></li>
+            <?php 
+                if($project->budget == "other") {
+                    $project->budget = "$".$project->budget_specify;
+                } else if($project->budget != "unknown") {
+                    $project->budget = "$".$project->budget;
+                }
+            ?>
+            <li>Materials Budget: <?php print $project->budget ?></li>
             <li>Audience: <?php print $project->audience;?></li>
             <li>Deadline: <?php print $project->deadlines;?></li>
             <li>Project Background:
@@ -49,12 +56,18 @@
                 </div>
             </li>
         </ul>
-        <?php if(!$current_user || has_permission('Bonfire.ProjectBriefs.Apply')):
-                if(!$current_user || ($current_user->meta->category == "creative" && $valid_applicant)):?>
+        <?php if(!$project->isClosed) { 
+            if(!$current_user || has_permission('Bonfire.ProjectBriefs.Apply')) {
+                if(!$current_user || ($current_user->meta->category == "creative" && $valid_applicant)) { ?>
         	       <a href="<?php print site_url('projects/project/'.$project->brief_id.'/apply');?>" class="<?php print $current_user ? 'magnific ' : '';?> btn btn-lg btn-primary">Volunteer for this project! <i class="fa fa-chevron-circle-right"></i></a>
                    <a class="btn btn-link" href="<?php print site_url('projects'); ?>">Find another project</a>
-            <?php endif;?>
-   	    <?php endif;?>
+            <?php } //current user & valid applicant
+   	        
+           } //permission check
+        } else { // project is closed ?>
+            <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?></p>
+
+        <?php } ?>
 
 
 <?php else : ?>

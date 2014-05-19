@@ -70,4 +70,16 @@ class Applicants_model extends BF_Model {
 	  return parent::find_by();
 	}
 
+
+	public function project_has_applicants($project_id) {
+		$where = array();
+		$where['applicants.project_id'] = $project_id;
+		$results = $this->find_all_by($where);
+		if($results) {
+			return count($results);
+		} else {
+			return false;
+		}
+	}
+
 }
