@@ -48,6 +48,11 @@ class applicants extends Front_Controller
 	//--------------------------------------------------------------------
 	public function apply($project_id)
 	{
+		$applications_status = $this->settings_lib->item('ext.applications_status');
+		if(!$applications_status) {
+			Template::set_message('Sorry, applications for volunteers has closed', 'info');
+			redirect(base_url() .'projects');	
+		}
 		$this->auth->restrict('Bonfire.ProjectBriefs.Apply',site_url('projects/project/'.$project_id));
 		$project = $this->projects_model->find($project_id);
 
@@ -55,6 +60,7 @@ class applicants extends Front_Controller
 			Template::set_message('This project has already received many qualified candidates. We encourage you to apply for some of our other great opportunities.', 'info');
 			redirect(base_url() .'projects');
 		}
+		
 
 		Template::set('project', $project);
 		if(isset($_POST['submit'])) {

@@ -6,9 +6,15 @@
             	<h2 class="title">Find a project</h2>
             </div>
         	<?php if (isset($projects) && is_array($projects)) :?>
+                <?php if($applications_status) { ?>
                 <p>
                     Ready to volunteer? View all currently available projects below. Click “Read more” for more information and to apply for the project.
                 </p>
+                <?php } else { ?>
+                    <p>
+                        Sorry, applications for volunteers has closed. Feel free to browse the projects to see what kinds of projects may be available next year!
+                    </p>
+                <?php } ?>
             <?php endif; ?>
         </div>
     </div>

@@ -333,9 +333,12 @@ endif;
 							if ( ! empty($field_control)) :
 						?>
 								<div class="control-group<?php echo $form_error_class; ?>">
-									<label class="control-label" for="<?php echo $field['name']; ?>"><?php echo $field['label']; ?></label>
+										<label class="control-label" for="<?php echo $field['name']; ?>"><?php echo $field['label']; ?></label>
 									<div class="controls">
 										<?php echo $field_control; ?>
+										<?php if($field['form_detail']['type'] == 'checkbox') { ?>
+										<label class="label-inline" for="<?php echo $field['name']; ?>"><?php echo $field['form_detail']['label']; ?></label>
+										<?php } ?>
 									</div>
 								</div>
 						<?php

@@ -16,6 +16,7 @@ class Projects extends Front_Controller
         public function index()
         {
             $this->load->helper(array('typography','text'));
+            $applications_status = $this->settings_lib->item('ext.applications_status');
 
             $projects = $this->projects_model
               ->order_by("isClosed","asc")
@@ -31,6 +32,7 @@ class Projects extends Front_Controller
               }
             }                         
             Template::set('projects', $projects);
+            Template::set("applications_status",$applications_status);
 
             Template::render();
         }
@@ -41,7 +43,7 @@ class Projects extends Front_Controller
         {
             $this->load->helper('typography');
             $this->load->library('form_validation');
-
+            $applications_status = $this->settings_lib->item('ext.applications_status');
             $project = $this->projects_model->order_by('created_on', 'asc')
                                       ->limit(1)
                                       ->find($id);
@@ -102,7 +104,7 @@ class Projects extends Front_Controller
                       $type = 'success';
                       log_activity($this->current_user->id, "Shared project via email", 'projects');
                     }
-                    
+                    Template::set("applications_status",$applications_status);
                     Template::set("project",$project);
                     Template::set("email_sent",$this->input->post("share_to"));
                     Template::set_view("share");
@@ -114,6 +116,7 @@ class Projects extends Front_Controller
               Template::set_message('You have already applied to volunteer for this project. We will contact you in June if you are a match.', 'info');
 
             }
+              Template::set("applications_status",$applications_status);
               Template::set('valid_applicant',$this->is_valid_applicant($id));
               Template::set('project', $project);
               Template::render();

@@ -40,21 +40,21 @@ $config['extended_settings_fields'] = array(
 		'permission' => 'This.Shouldnt.ShowUp',
 	),
 	array(
-		'name'   => 'street_name',
-		'label'   => lang('user_meta_street_name'),
-		'rules'   => 'trim|max_length[100]',
+		'name'   => 'applications_status',
+		'label'   => 'Applications Status',
+		'rules'   => '',
 		'form_detail' => array(
-			'type' => 'input',
+			'type' => 'checkbox',
+			'value'		=> 1,
+			'label'=> "Open",
 			'settings' => array(
-				'name'		=> 'street_name',
-				'id'		=> 'street_name',
-				'maxlength'	=> '100',
-				'class'		=> 'span6',
+				'name'		=> 'applications_status',
+				'id'		=> 'applications_status',
 			),
 		),
 		'permission' => 'Site.Settings.View',
 	),
-	array(
+	/*array(
 		'name'   => 'state',
 		'label'   => lang('user_meta_state'),
 		'rules'   => 'required|trim|max_length[2]',
@@ -101,5 +101,5 @@ $config['extended_settings_fields'] = array(
 				'xlarge' => 'Extra Large Shirt',
 			  ),
 		),
-	),
+	),*/
 );

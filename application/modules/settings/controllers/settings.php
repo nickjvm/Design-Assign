@@ -40,7 +40,6 @@ class Settings extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
 		// restrict access - View and Manage
 		$this->auth->restrict('Bonfire.Settings.View');
 		$this->auth->restrict('Bonfire.Settings.Manage');
@@ -68,7 +67,9 @@ class Settings extends Admin_Controller
 		$extended_settings = config_item('extended_settings_fields');
 
 		if (isset($_POST['save']))
+
 		{
+
 			if ($this->save_settings($extended_settings))
 			{
 				Template::set_message(lang('settings_saved_success'), 'success');
@@ -170,20 +171,19 @@ class Settings extends Admin_Controller
 			array('name' => 'site.show_front_profiler', 'value' => isset($_POST['show_front_profiler']) ? 1 : 0),
 			array('name' => 'site.languages', 'value' => $this->input->post('languages') != '' ? serialize($this->input->post('languages')) : ''),
 			array('name' => 'password_iterations', 'value' => $this->input->post('password_iterations')),
+			array('name' => 'ext.applications_status', 'value' => isset($_POST['applications_status']) ? 1 : 0),
+
 
 		);
-		if($this->input->post("logo")['size']) {
+
+		$logo = $this->input->post("logo");
+		if($logo['size']) {
 
 			$logo = $this->upload_logo();
 			$data[] = array('name' => 'site.logo', 'value' => $logo['file_name']);
 		}
 
 		
-		//destroy the saved update message in case they changed update preferences.
-		if ($this->cache->get('update_message'))
-		{
-			$this->cache->delete('update_message');
-		}
 
 		// Log the activity
 		log_activity($this->current_user->id, lang('bf_act_settings_saved').': ' . $this->input->ip_address(), 'core');

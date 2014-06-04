@@ -56,7 +56,7 @@
                 </div>
             </li>
         </ul>
-        <?php if(!$project->isClosed) { 
+        <?php if(!$project->isClosed && $applications_status) { 
             if(!$current_user || has_permission('Bonfire.ProjectBriefs.Apply')) {
                 if(!$current_user || ($current_user->meta->category == "creative" && $valid_applicant)) { ?>
         	       <a href="<?php print site_url('projects/project/'.$project->brief_id.'/apply');?>" class="<?php print $current_user ? 'magnific ' : '';?> btn btn-lg btn-primary">Volunteer for this project! <i class="fa fa-chevron-circle-right"></i></a>
@@ -65,8 +65,11 @@
    	        
            } //permission check
         } else { // project is closed ?>
-            <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?></p>
-
+            <?php if(!$applications_status) { ?>
+              <p>Sorry, applications for volunteers have closed.</p>
+            <?php } else { ?> 
+                 <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?></p>
+            <?php } ?>
         <?php } ?>
 
 
