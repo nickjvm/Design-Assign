@@ -68,6 +68,10 @@ $(document).ready(function() {
 			</ul>";
 
 		self.Controls = function() {
+
+			if(self.Slides.length == 1) {
+				return;
+			}
 			if(self.SlideCount) {
 				$(self.ControlsMarkup).appendTo(".jumbotron");
 			}
@@ -146,12 +150,21 @@ $(document).ready(function() {
 
 	$("select.select-or-other").on("change",function() {
 		var $this = $(this),
-			$toggledElement = $this.next();
-		if($this.val().toLowerCase() == "other") {
-			$toggledElement.removeClass("hidden");
-		} else {
-			$toggledElement.addClass("hidden").find("input").val("");
+			$toggledElement = $(".extra:visible",$this.parent());
+		if($toggledElement.length) {
+			$toggledElement.addClass("hidden").find("input")[0].value = ""
 		}
+		
+		if($this.val().toLowerCase() == "other" || $this.val().toLowerCase() == $this.data("specify")) {
+			if($this.val().toLowerCase() == $this.data("specify")) {
+				$toggledElement = $("." + $this.data('specify'),$this.parent());
+			} else {
+				$toggledElement = $this.next();
+			}
+			$toggledElement.removeClass("hidden");
+			$toggledElement.find("input")[0].value = $toggledElement.find("input")[0].defaultValue;
+		}
+
 	}).trigger("change");
 
 	var user_category = $("input[name=category][type=radio]").length ? $("input[name=category]:checked").val() : $("input[name=category][type=hidden]").val();

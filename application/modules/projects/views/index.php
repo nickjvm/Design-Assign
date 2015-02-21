@@ -11,9 +11,13 @@
                     Ready to volunteer? View all currently available projects below. Click “Read more” for more information and to apply for the project.
                 </p>
                 <?php } else { ?>
+                    <?php $date = $this->settings_lib->item('ext.cr_application_start_date'); 
+                    $date = strtotime($date);
+                    if($date < strtotime()) { ?>
                     <p>
                         Sorry, applications for volunteers has closed. Feel free to browse the projects to see what kinds of projects may be available next year!
                     </p>
+                    <?php } ?>
                 <?php } ?>
             <?php endif; ?>
         </div>
@@ -32,9 +36,6 @@
             	<li>
             		<span class="label">Organization:</span> 
             		<?php print $this->user_model->find_meta_for($project->created_by)->organization; ?></li>
-            	<li>
-            		<span class="label">Estimated Hours:</span>
-            		<?php print $project->hours; ?></li>
             	<li><span class="label">Project Background:</span>
             		<div>
     	        		<?php echo character_limiter(auto_typography($project->body),50); ?>		
@@ -47,7 +48,7 @@
     </div>
     <?php else : ?>
         <div class="alert alert-info">
-            We are currently seeking projects from our non-profit partners. Check back soon to volunteer for needed projects!
+            Our non-profit partners are working on their project requests! Check back soon!
         </div>
     <?php endif; ?>
 </div>

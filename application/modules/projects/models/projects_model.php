@@ -33,11 +33,6 @@
                'rules' => 'required|trim|strip_tags|xss_clean'
            ),
            array(
-               'field' => 'hours',
-               'label' => 'Estimated project hours',
-               'rules' => 'required|trim|strip_tags|xss_clean'
-           ),
-           array(
                'field' => 'audience',
                'label' => 'Audience',
                'rules' => 'required|trim|strip_tags|xss_clean'

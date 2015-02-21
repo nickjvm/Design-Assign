@@ -41,7 +41,7 @@ $config['extended_settings_fields'] = array(
 	),
 	array(
 		'name'   => 'applications_status',
-		'label'   => 'Applications Status',
+		'label'   => 'Creative Applications Status',
 		'rules'   => '',
 		'form_detail' => array(
 			'type' => 'checkbox',
@@ -53,6 +53,53 @@ $config['extended_settings_fields'] = array(
 			),
 		),
 		'permission' => 'Site.Settings.View',
+	),
+	array(
+		'name'   => 'np_applications_status',
+		'label'   => 'Non-Profit Applications Status',
+		'rules'   => '',
+		'form_detail' => array(
+			'type' => 'checkbox',
+			'value'		=> 1,
+			'label'=> "Open",
+			'settings' => array(
+				'name'		=> 'np_applications_status',
+				'id'		=> 'np_applications_status',
+			),
+		),
+		'permission' => 'Site.Settings.View',
+	),
+	array(
+		'name'   => 'np_application_start_date',
+		'label'   => 'Non-Profit Applications Start Date',
+		'rules'   => '',
+		'form_detail' => array(
+			'type' => 'input',
+			'value'		=> "",
+			'settings' => array(
+				'name'		=> 'np_application_start_date',
+				'id'		=> 'np_application_start_date',
+				'placeholder'=>'MM/DD/YYYY'
+			),
+		),
+		'permission' => 'Site.Settings.View',
+
+	),
+	array(
+		'name'   => 'cr_application_start_date',
+		'label'   => 'Creatives Applications Start Date',
+		'rules'   => '',
+		'form_detail' => array(
+			'type' => 'input',
+			'value'		=> "",
+			'settings' => array(
+				'name'		=> 'cr_application_start_date',
+				'id'		=> 'cr_application_start_date',
+				'placeholder'=>'MM/DD/YYYY'
+			),
+		),
+		'permission' => 'Site.Settings.View',
+
 	),
 	/*array(
 		'name'   => 'state',

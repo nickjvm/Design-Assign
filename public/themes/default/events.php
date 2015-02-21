@@ -1,27 +1,31 @@
-<h2>2014 events</h2>
-<ul class="list-unstyled upcoming-events">          
-	<li class="fade">  
-        <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-04-01T00:00:00-08:00">April 7</span></span>    
-        <span class="span8">Applications open</span>  
+<h2>2015 events</h2>
+<dl class="list-unstyled upcoming-events">          
+    <dt>March 23</dt>
+    <dd>Non-profit applications open</dd>
+    </li>          
+	<dt>April 13</dt>
+    <dd>Designer applications open</dd>
     </li>
         
-    <li class="fade">  
-        <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-16T00:00:00-07:00">May 7</span></span>    
-        <span class="span8">Applications for non-profit organizations close</span>  
-    </li class="fade">
-        
-    <li class="fade">  
-        <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-05-30T00:00:00-07:00">May 30</span></span>    
-        <span class="span8">Applications for creative volunteers close</span>  
+    <dt>May 17</dt>
+    <dd>Applications close</dd>
     </li>
         
-    <li class="fade">  
-        <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-06-14T00:00:00-07:00">June 14</span></span>    
-        <span class="span8">Kick-off workshop</span>  
+    <dt>June 22</dt>
+    <dd>Kickoff workshop 2-4 p.m., Urbandale Public Library</dd>
     </li>
 
-    <li>  
-        <span class="span4"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2014-10-23T00:00:00-07:00">October 23</span></span>    
-        <span class="span8">Culmination gala</span>  
+    <dt>June 22</dt>
+    <dd>Contracts due</dd>
     </li>
-  </ul>
+
+    <dt>September (TBD)</dt>
+    <dd>Gala artwork and materials due</dd>
+    </li>
+
+    <dt>October (TBD)</dt>
+    <dd>Culmination gala</dd>
+    </li>
+</dl>
+
+

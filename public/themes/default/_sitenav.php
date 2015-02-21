@@ -20,7 +20,7 @@
                     <li><a <?php echo check_method_arguments('page','who-we-are'); ?> href="<?php echo site_url(); ?>who-we-are">Who we are</a></li>
                     <li><a <?php echo check_method_arguments('page','hows-it-work'); ?> href="<?php echo site_url(); ?>hows-it-work">How's it work?</a></li>
                     <li><a <?php echo check_class_arguments('projects',''); ?> href="<?php echo site_url(); ?>projects">Find a project</a></li>
-                    <?php if(!$this->auth->is_logged_in() || has_permission('Bonfire.ProjectBriefs.Create')) { ?>
+                    <?php if($this->settings_lib->item('ext.np_applications_status') && (!$this->auth->is_logged_in() || has_permission('Bonfire.ProjectBriefs.Create'))) { ?>
                      <li><a <?php echo check_method_arguments('create',''); ?> href="<?php echo site_url(); ?>projects/create">Post a project</a></li>
                     <?php } ?>
 

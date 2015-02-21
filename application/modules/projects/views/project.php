@@ -66,7 +66,13 @@
            } //permission check
         } else { // project is closed ?>
             <?php if(!$applications_status) { ?>
-              <p>Sorry, applications for volunteers have closed.</p>
+                <?php $date = $this->settings_lib->item('ext.cr_application_start_date'); 
+                $date = strtotime($date);
+                if($date > strtotime()) { ?>
+                  <p>Applications for volunteers will open on <strong><?php echo date("F j",$date); ?>!</strong></p>
+                <?php } else { ?>
+                  <p>Sorry, applications for volunteers are currently open.</p>
+                <?php } ?>
             <?php } else { ?> 
                  <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?></p>
             <?php } ?>

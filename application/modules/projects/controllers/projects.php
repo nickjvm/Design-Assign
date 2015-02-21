@@ -141,9 +141,9 @@ class Projects extends Front_Controller
                $data = array(
                    'title' => $this->input->post('title'),
                    'body'  => $this->input->post('body'),
-                   'hours'  => $this->input->post('hours'),
                    'type'  => $this->input->post('type'),
                    'type_specify'  => $this->input->post('type_specify'),
+                   'email_specify'  => $this->input->post('email_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),
                    'budget_specify'  => $this->input->post('budget_specify'),
@@ -176,7 +176,7 @@ class Projects extends Front_Controller
                   $this->emailer->send($data);
                    Template::set_message('You post was successfully submitted for approval. Once approved, it will appear in the list below.', 'success');
                    redirect(base_url() .'projects');
-               } 
+               }
            } 
 
            Template::render();

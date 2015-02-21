@@ -1392,6 +1392,24 @@ input[type="button"].btn-block {
 input[type=file] {
   line-height: 1;
 }
+body,
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+#main {
+  padding-bottom: 250px;
+}
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .navbar {
   border: 0;
 }
@@ -1974,4 +1992,29 @@ input[type=radio] + label {
 }
 .fade {
   opacity: .6;
+}
+dd {
+  margin-bottom: 10px;
+}
+select,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  line-height: 2;
+  font-size: 15px;
+}
+textarea {
+  font-size: 15px;
 }

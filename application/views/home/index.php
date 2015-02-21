@@ -1,6 +1,8 @@
 <div id="jumbotron-wrapper">
     <div class="jumbotron">
-      <img class="slide" width="1170" height="399" src="<?php print img_path();?>banners/gala.png"/  >
+		<?php if($applications_status) { ?>
+      <img class="slide" width="1170" height="399" src="<?php print img_path();?>banners/applications-open.png"/  >
+      <?php } ?>
       <img class="slide" width="1170" height="399" src="<?php print img_path();?>banners/giving-back.png"/  >
     </div>
   </div>

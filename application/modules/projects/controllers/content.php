@@ -79,13 +79,22 @@ class Content extends Admin_Controller
 		{
 		   if ($this->input->post('submit'))
 		   {
+				$this->projects_model->skip_validation(true);
 		       $data = array(
-		           'title' => $this->input->post('title'),
-		           'body'  => $this->input->post('body'),
-		           'organization'  => $this->input->post('organization'),
-		           'hours'  => $this->input->post('hours')
-		       );
-
+                   'title' => $this->input->post('title'),
+                   'body'  => $this->input->post('body'),
+                   'type'  => $this->input->post('type'),
+                   'type_specify'  => $this->input->post('type_specify'),
+                   'email_specify'  => $this->input->post('email_specify'),
+                   'audience'  => $this->input->post('audience'),
+                   'budget'  => $this->input->post('budget'),
+                   'budget_specify'  => $this->input->post('budget_specify'),
+                   'message'  => $this->input->post('message'),
+                   'deliverables'  => $this->input->post('deliverables'),
+                   'deadlines'  => $this->input->post('deadlines'),
+                   'goals'  => $this->input->post('goals'),
+                   'created_by' => $this->current_user->id
+               );
 		       if ($this->projects_model->insert($data))
 		       {
 		           Template::set_message('You post was successfully saved.', 'success');
@@ -105,9 +114,9 @@ class Content extends Admin_Controller
 		        $data = array(
                    'title' => $this->input->post('title'),
                    'body'  => $this->input->post('body'),
-                   'hours'  => $this->input->post('hours'),
                    'type'  => $this->input->post('type'),
                    'type_specify'  => $this->input->post('type_specify'),
+                   'email_specify'  => $this->input->post('email_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),
                    'budget_specify'  => $this->input->post('budget_specify'),

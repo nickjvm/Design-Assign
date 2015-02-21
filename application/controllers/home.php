@@ -60,6 +60,7 @@ class Home extends CI_Controller
 		$this->load->library('users/auth');
 		$this->set_current_user();
 
+		Template::set('applications_status', $this->settings_lib->item('ext.np_applications_status'));
 		Template::render();
 	}//end index()
 

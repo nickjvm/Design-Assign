@@ -1,5 +1,4 @@
  <div class="container" id="main-region">
-
     <?php echo form_open(current_url()); ?>
     <div class="row">
         <div class="control-group span8 <?php if (form_error('title')) echo 'error'; ?>">
@@ -12,12 +11,12 @@
         <div class="span3">
             <div class="control-group <?php if (form_error('type') || form_error('type_specify')) echo 'error'; ?>">
                 <label class="control-label" for="type">This project is a(n) ...</label>
-                <select class="select-or-other span3" name="type" id="type">
+                <select data-specify="email" class="select-or-other span3" name="type" id="type">
                     <option  <?php echo isset($post) && $post->type == '' ? 'selected="selected"' : ''?> value="">—Select—</option>
                     <option  <?php echo isset($post) && $post->type == 'Advertisement' || set_select('type', 'Advertisement') ? 'selected="selected"' : ''?> value="Advertisement">Advertisement</option>
                     <option  <?php echo isset($post) && $post->type == 'Brochure' || set_select('type', 'Brochure') ? 'selected="selected"' : ''?> value="Brochure">Brochure</option>
                     <option  <?php echo isset($post) && $post->type == 'Campaign' || set_select('type', 'Campaign') ? 'selected="selected"' : ''?> value="Campaign">Campaign (includes a similar look and feel across media types)</option>
-                    <option  <?php echo isset($post) && $post->type == 'Email Template' || set_select('type', 'Email Template') ? 'selected="selected"' : ''?> value="Email">Email Template</option>
+                    <option  <?php echo isset($post) && $post->type == 'Email' || set_select('type', 'Email') ? 'selected="selected"' : ''?> value="Email">Email Template</option>
                     <option  <?php echo isset($post) && $post->type == 'Flier' || set_select('type', 'Flier') ? 'selected="selected"' : ''?> value="Flier">Flier</option>
                     <option  <?php echo isset($post) && $post->type == 'Logo' || set_select('type', 'Logo') ? 'selected="selected"' : ''?> value="Logo">Logo</option>
                     <option  <?php echo isset($post) && $post->type == 'Photography' || set_select('type', 'Photography') ? 'selected="selected"' : ''?> value="Photography">Photography</option>
@@ -32,19 +31,9 @@
                 <div class="extra hidden">
                     <input type="text" value="<?php print set_value("type_specify",$post->type_specify); ?>"  placeholder="please specify..." class="span3" maxlength="255" name="type_specify"/>
                 </div>
-            </div>
-        </div>
-        <div class="span2">
-            <div class="control-group <?php if (form_error('hours')) echo 'error'; ?>">
-                <label for="hours" class="control-label">Estimated Project Hours</label>
-                <select name="hours" class="span2 input-xxlarge" id="hours" value="<?php echo isset($post) ? $post->hours : set_value('hours'); ?>">
-                    <option  <?php echo isset($post) && $post->hours == '' ? 'selected="selected"' : ''?> value="">—Select—</option>
-                    <option  <?php echo isset($post) && $post->hours == '0-5' || set_select('hours', '0-5') ? 'selected="selected"' : ''?> value="0-5">0-5</option>
-                    <option  <?php echo isset($post) && $post->hours == '5-10' || set_select('hours', '5-10') ? 'selected="selected"' : ''?> value="5-10">5-10</option>
-                    <option  <?php echo isset($post) && $post->hours == '10-20' || set_select('hours', '10-20') ? 'selected="selected"' : ''?> value="10-20">10-20</option>
-                    <option  <?php echo isset($post) && $post->hours == '20+' || set_select('hours', '20+') ? 'selected="selected"' : ''?>value="20+">20+</option>
-                    <option  <?php echo isset($post) && $post->hours == 'Help' || set_select('hours', 'Help') ? 'selected="selected"' : ''?>value="Help">I need help estimating the project hours.</option>
-                </select>
+                <div class="extra hidden email">
+                    <input type="text" value="<?php print set_value("email_specify",$post->email_specify); ?>"  placeholder="Email client (optional)" class="span3" maxlength="255" name="email_specify"/>
+                </div>
             </div>
         </div>
 
@@ -68,7 +57,7 @@
     <div class="row">
         <div class="control-group span8 <?php if (form_error('audience')) echo 'error'; ?>">
             <label for="audience" class="control-label">Audience <div class="help-inline">(Who will see the finished product?)</div></label>
-            <input type="text" id="audience" name="audience" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->audience : set_value('audience'); ?>" />
+            <textarea type="text" id="audience" name="audience" rows="5" class="span8 input-xxlarge"><?php echo isset($post) ? $post->audience : set_value('audience'); ?></textarea>
         </div>
     </div>
     <div class="row">

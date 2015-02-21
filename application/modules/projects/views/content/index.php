@@ -50,7 +50,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="5">
                         <br/>
                         <div class="alert alert-warning">
                             No Projects found.
