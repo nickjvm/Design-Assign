@@ -63,26 +63,26 @@
     <div class="row">
         <div class="control-group span8<?php if (form_error('message')) echo 'error'; ?>">
             <label for="message" class="control-label">Message <div class="help-inline">(What are you trying to say?)</div></label>
-            <input type="text" id="message" name="message" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->message : set_value('message'); ?>" />
+            <textarea id="message" name="message" class="span8 input-xxlarge" rows="5"><?php echo isset($post) ? $post->message : set_value('message'); ?></textarea>
         </div>
     </div>
     <div class="row">
         <div class="control-group span8<?php if (form_error('deliverables')) echo 'error'; ?>">
             <label for="deliverables" class="control-label">Final Product/Deliverable <div class="help-inline">(Would you like the design files? Help with printing?)</div></label>
-            <input type="text" id="deliverables" name="deliverables" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->deliverables : set_value('deliverables'); ?>" />
+            <textarea id="deliverables" name="deliverables" class="span8 input-xxlarge" rows="5"><?php echo isset($post) ? $post->deliverables : set_value('deliverables'); ?></textarea>
         </div>
     </div>
     <div class="row">
         <div class="control-group span8<?php if (form_error('deadlines')) echo 'error'; ?>">
             <label for="deadlines" class="control-label">Known Deadlines <div class="help-inline">(When should this project be completed? Any other dates we need to be aware of?)</div></label>
-            <input type="text" id="deadlines" name="deadlines" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->deadlines : set_value('deadlines'); ?>" />
+            <textarea id="deadlines" name="deadlines" class="span8 input-xxlarge" rows="5"><?php echo isset($post) ? $post->deadlines : set_value('deadlines'); ?></textarea>
             <div class="help">Please remember that all projects should be completed no later than October 1, 2014.</div>
         </div>
     </div>
     <div class="row">
         <div class="control-group span8<?php if (form_error('goals')) echo 'error'; ?>">
             <label for="goals" class="control-label">Goals of Project <div class="help-inline">(What are you trying to accomplish?)</div></label>
-            <input type="text" id="goals" name="goals" class="span8 input-xxlarge" value="<?php echo isset($post) ? $post->goals : set_value('goals'); ?>" />
+            <textarea id="goals" name="goals" class="span8 input-xxlarge" rows="5"><?php echo isset($post) ? $post->goals : set_value('goals'); ?></textarea>
         </div>
     </div>
     <div class="row">
