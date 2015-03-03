@@ -35,7 +35,12 @@ class Content extends Admin_Controller
 		           'body'  => $this->input->post('body'),
 		           'sidebar'  => $this->input->post('sidebar')
 		       );
-
+               $image = $this->input->post("image");
+	               if(isset($image) && $image['size']) {
+	       	        if($image = $this->upload_image("image")) {
+	       		        $data['image'] = $image['file_name'];
+	       		    }
+	       		}
 		       if ($this->page_model->insert($data))
 		       {
 		           Template::set_message('You page was successfully saved.', 'success');
@@ -68,7 +73,7 @@ class Content extends Admin_Controller
 		        {
 		            Template::set_message('You page was successfully saved.', 'success');
 		            if($return) {
-		            	redirect(base_url().'pages/page/'.$data['slug']);
+		            	redirect(base_url().$data['slug']);
 		            } else {
 			            redirect(SITE_AREA .'/content/pages');
 			        }

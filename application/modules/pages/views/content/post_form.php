@@ -32,7 +32,7 @@
             <label for="body">Content</label>
             <div class="controls">
                 <?php if (form_error('body')) echo '<span class="help-inline">'. form_error('body') .'</span>'; ?>
-                <textarea name="body" class="input-xxlarge" rows="15"><?php echo isset($page) ? $page->body : set_value('body') ?></textarea>
+                <textarea name="body" class="summernote input-xxlarge" rows="15"><?php echo isset($page) ? $page->body : set_value('body') ?></textarea>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <label for="sidebar">Sidebar</label>
             <div class="controls">
                 <?php if (form_error('sidebar')) echo '<span class="help-inline">'. form_error('sidebar') .'</span>'; ?>
-                <textarea name="sidebar" class="input-xxlarge" rows="15"><?php echo isset($page) ? $page->sidebar : set_value('sidebar') ?></textarea>
+                <textarea name="sidebar" class="summernote input-xxlarge" rows="15"><?php echo isset($page) ? $page->sidebar : set_value('sidebar') ?></textarea>
             </div>
         </div>
 

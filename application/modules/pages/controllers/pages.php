@@ -19,10 +19,13 @@ class Pages extends Front_Controller
 
         //--------------------------------------------------------------------
 
-        public function page($slug)
+        public function page($slug,$slug2 = "")
         {
             $this->load->helper('typography');
 
+            if($slug2) {
+                $slug = $slug."/".$slug2;
+            }
             $page = $this->page_model->order_by('created_on', 'asc')
                                       ->limit(1)
                                       ->find_by("slug",$slug);

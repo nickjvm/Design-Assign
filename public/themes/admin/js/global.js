@@ -31,3 +31,21 @@ $('.collapse').collapse();
  Prevent elements classed with "no-link" from linking
 */
 //$(".no-link").click(function(e){ e.preventDefault();	});
+
+$(".summernote").summernote({
+	height:200,
+	toolbar: [
+	    //[groupname, [button list]]
+	     
+	    ['style', ['bold', 'italic', 'underline', 'clear']],
+	    ['insert', ['picture', 'link', 'table', 'hr']],
+	    ['fontsize', ['fontsize']],
+	    ['color', ['color']],
+	    ['para', ['ul', 'ol', 'paragraph']],
+	    ['height', ['height']],
+	    ['codeview',['codeview']]
+	  ],
+	  codemirror: { // codemirror options
+	      theme: 'monokai'
+	    }
+	});
