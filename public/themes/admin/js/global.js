@@ -34,6 +34,9 @@ $('.collapse').collapse();
 
 $(".summernote").summernote({
 	height:200,
+	onImageUpload: function(files, editor, welEditable) {
+	    sendFile(files[0], editor, welEditable);
+	},
 	toolbar: [
 	    //[groupname, [button list]]
 	     
@@ -49,3 +52,21 @@ $(".summernote").summernote({
 	      theme: 'monokai'
 	    }
 	});
+
+function sendFile(file, editor, welEditable) {
+      data = new FormData();
+      data.append("image", file);
+      data.append("ci_csrf_token",csfrData['ci_csrf_token']);
+      $.ajax({
+          data: data,
+          type: "POST",
+          url: "/admin/content/pages/upload_image",
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(url) {
+          	var data = JSON.parse(url);
+              editor.insertImage(welEditable, "/assets/images/"+data.file_name);
+          }
+      });
+  }

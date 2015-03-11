@@ -67,11 +67,11 @@ $route[SITE_AREA]	= 'admin/home';
 $route['activate']		        = 'users/activate';
 $route['activate/(:any)']		= 'users/activate/$1';
 $route['resend_activation']		= 'users/resend_activation';
-$route['(:any)/(:any)'] = 'pages/page/$1/$2';
 
 $route['projects/project/(:num)/apply'] = 'applicants/apply/$1';
 $route['(who-we-are|hows-it-work)'] = 'pages/page/$1';
 
+$route['featured/(:any)'] = 'pages/page/featured/$1';
 
 
 /* End of file routes.php */

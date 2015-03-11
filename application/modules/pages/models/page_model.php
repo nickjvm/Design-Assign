@@ -25,7 +25,7 @@
             array(
                 'field' => 'body',
                 'label' => 'Body',
-                'rules' => 'trim|strip_tags|xss_clean'
+                'rules' => 'trim|xss_clean'
             )
         );
 

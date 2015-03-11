@@ -183,7 +183,6 @@ $(document).ready(function() {
 });
 
 function check_category(val) {
-	console.log(val);
 	if(val == "non-profit") {
 		$('.nonprofit.extra').show();
 		$('.designer.extra').hide();

@@ -87,13 +87,15 @@ class Content extends Admin_Controller
 		    Template::render();
 		}
 
-		private function upload_image($name)
+		public function upload_image($ajax = false)
 			{
+				$this->auth->restrict('Bonfire.Pages.View');
+
 				$config['upload_path'] = "./assets/images/";
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']	= '2048';
-				$config['max_width']  = '1600';
-				$config['max_height']  = '768';
+				//$config['max_size']	= '2048';
+				//$config['max_width']  = '1600';
+				//$config['max_height']  = '768';
 
 				$this->load->library('upload', $config);
 
@@ -106,9 +108,13 @@ class Content extends Admin_Controller
 				}
 				else
 				{
-					$data = array('upload_data' => $this->upload->data());
 
-					return $data['upload_data'];
+					$data = array('upload_data' => $this->upload->data());
+					if(IS_AJAX) {
+						echo json_encode($data['upload_data']);
+					} else {
+						return $data['upload_data'];
+					}
 				}
 			}
 		//--------------------------------------------------------------------
