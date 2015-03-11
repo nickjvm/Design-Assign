@@ -66,9 +66,11 @@ class Content extends Admin_Controller
 				}
 			}
         	$briefs = $this->projects_model->where('deleted', 0)->order_by('created_on',"asc")->find_all();
-        	foreach($briefs as $brief) {
-        		$brief->organization = $this->user_model->find_user_and_meta($brief->created_by)->organization;
-        	}
+        	if($briefs) { 
+	        	foreach($briefs as $brief) {
+	        		$brief->organization = $this->user_model->find_user_and_meta($brief->created_by)->organization;
+	        	}
+	        }
     	    Template::set('briefs', $briefs);
             Template::render();
         }
@@ -85,7 +87,8 @@ class Content extends Admin_Controller
                    'body'  => $this->input->post('body'),
                    'type'  => $this->input->post('type'),
                    'type_specify'  => $this->input->post('type_specify'),
-                   'email_specify'  => $this->input->post('email_specify'),
+                   'hours'  => $this->input->post('hours'),
+				   'email_specify'  => $this->input->post('email_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),
                    'budget_specify'  => $this->input->post('budget_specify'),
@@ -116,6 +119,7 @@ class Content extends Admin_Controller
                    'body'  => $this->input->post('body'),
                    'type'  => $this->input->post('type'),
                    'type_specify'  => $this->input->post('type_specify'),
+                   'hours'  => $this->input->post('hours'),
                    'email_specify'  => $this->input->post('email_specify'),
                    'audience'  => $this->input->post('audience'),
                    'budget'  => $this->input->post('budget'),

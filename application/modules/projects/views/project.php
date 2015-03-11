@@ -37,7 +37,7 @@
                 print "<li>Organization: ".$author->organization."</li>";
             }
             ?>
-            <?php if($project->hours != "Help") {?>
+            <?php if($project->hours && $project->hours != "Help") {?>
                 <li>Estimated Hours: <?php print $project->hours;?></li>
             <?php }?>
             <?php 
@@ -48,8 +48,9 @@
                 }
             ?>
             <li>Materials Budget: <?php print $project->budget ?></li>
-            <li>Audience: <?php print $project->audience;?></li>
-            <li>Deadline: <?php print $project->deadlines;?></li>
+            <li>Audience: 
+                <div><?php print $project->audience;?></div></li>
+            <li>Deadline:<div><?php print $project->deadlines;?></div></li>
             <li>Project Background:
                 <div>
                     <?php echo auto_typography($project->body) ?>

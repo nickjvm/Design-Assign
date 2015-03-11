@@ -52,7 +52,19 @@
                 </div>
             </div>
         </div>
-
+        <div class="span2">
+            <div class="control-group <?php if (form_error('hours')) echo 'error'; ?>">
+                <label for="hours" class="control-label">Estimated Project Hours</label>
+                <select name="hours" class="span2 input-xxlarge" id="hours" value="<?php echo isset($post) ? $post->hours : set_value('hours'); ?>">
+                    <option  <?php echo isset($post) && $post->hours == '' ? 'selected="selected"' : ''?> value="">—Select—</option>
+                    <option  <?php echo isset($post) && $post->hours == '0-5' || set_select('hours', '0-5') ? 'selected="selected"' : ''?> value="0-5">0-5</option>
+                    <option  <?php echo isset($post) && $post->hours == '5-10' || set_select('hours', '5-10') ? 'selected="selected"' : ''?> value="5-10">5-10</option>
+                    <option  <?php echo isset($post) && $post->hours == '10-20' || set_select('hours', '10-20') ? 'selected="selected"' : ''?> value="10-20">10-20</option>
+                    <option  <?php echo isset($post) && $post->hours == '20+' || set_select('hours', '20+') ? 'selected="selected"' : ''?>value="20+">20+</option>
+                    <option  <?php echo isset($post) && $post->hours == 'Help' || set_select('hours', 'Help') ? 'selected="selected"' : ''?>value="Help">I need help estimating the project hours.</option>
+                </select>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="control-group span8 <?php if (form_error('audience')) echo 'error'; ?>">

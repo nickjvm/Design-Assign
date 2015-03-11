@@ -36,7 +36,11 @@
             	<li>
             		<span class="label">Organization:</span> 
             		<?php print $this->user_model->find_meta_for($project->created_by)->organization; ?></li>
-            	<li><span class="label">Project Background:</span>
+            	<?php if($project->hours): ?><li>
+                    <span class="label">Estimated Hours:</span>
+                    <?php print $project->hours; ?></li>
+                <?php endif; ?>
+                <li><span class="label">Project Background:</span>
             		<div>
     	        		<?php echo character_limiter(auto_typography($project->body),50); ?>		
     	        	</div>
