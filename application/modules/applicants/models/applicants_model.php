@@ -4,13 +4,13 @@ class Applicants_model extends BF_Model {
 
 	protected $table_name	= "applicants";
 	protected $key			= "id";
-	protected $soft_deletes	= false;
+	protected $soft_deletes	= true;
 	protected $date_format	= "datetime";
 
 	protected $log_user 	= FALSE;
 
 	protected $set_created	= TRUE;
-	protected $set_modified = false;
+	protected $set_modified = true;
 
 	/*
 		Customize the operations of the model without recreating the insert, update,

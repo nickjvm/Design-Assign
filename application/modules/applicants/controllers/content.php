@@ -64,6 +64,7 @@ class content extends Admin_Controller
 			}
 		}
 		$where = array();
+		$where['deleted'] = 0;
 		if (preg_match('{brief_id-([0-9]*)}', $filter, $matches))
 		{
 			$filter_type = 'brief_id';
@@ -71,10 +72,9 @@ class content extends Admin_Controller
 			$where['applicants.project_id'] = $brief_id;
 			$records = $this->applicants_model->order_by("project_id","asc")->find_all_by($where);
 		} else {
-			$records = $this->applicants_model->order_by("project_id","asc")->find_all();
+			$records = $this->applicants_model->order_by("project_id","asc")->find_all_by($where);
 			$filter_type = 'all';
 		}
-
 		$records_with_applicants = array();
 
 		if(is_array($records)) {
