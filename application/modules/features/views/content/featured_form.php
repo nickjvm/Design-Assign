@@ -14,7 +14,7 @@
             <label for="image">Thumbnail</label>
             <div class="controls">
                 <?php if(isset($post) && $post->image) { ?>
-                    <img src="<?php echo site_url() . 'images/' .$post->image; ?>?height=75&assets=assets/images/features"/>
+                    <img src="<?php print img_path().'features/'.$post->image; ?>" width="75" height="75"/>
                 <?php } ?>
                 <input type="file" name="image" id="image" class="span3" />
             </div>
@@ -24,7 +24,7 @@
             <div class="controls">
 
                 <?php if(isset($post) && $post->image) { ?>
-                    <img src="<?php echo site_url() . 'images/' .$post->slide; ?>?height=75&assets=assets/images/features"/>
+                    <img src="<?php print img_path().'features/'.$post->slide; ?>" width="175" height="75"/>
                 <?php } ?>
                 <input type="file" name="slide" id="slide" class="span3" />
             </div>
