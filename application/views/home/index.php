@@ -1,8 +1,12 @@
 <div id="jumbotron-wrapper">
     <div class="jumbotron">
-    	<a href="/featured/alz">
-	    	<img class="slide" width="1170" height="399" src="<?php echo img_path(); ?>/banners/Banner-Art-Featured-2015-1Alz-01.png"/>
-	    </a>
+    	<?php if(isset($features) && $features) { ?>
+	    	<?php foreach($features as $feature): ?>
+		    	<a href="<?php echo site_url() . 'features/'.$feature->slug; ?>">
+			    	<img class="slide" width="1170" height="399" src="<?php print img_path().'features/'.$feature->slide; ?>"/>
+			    </a>
+			<?php endforeach; ?>
+		<?php } ?>
 		<?php if($applications_status) { ?>
       <img class="slide" width="1170" height="399" src="<?php print img_path();?>banners/applications-open.png"/  >
       <?php } ?>

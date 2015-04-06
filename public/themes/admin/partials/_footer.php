@@ -13,8 +13,25 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?php echo js_path(); ?>jquery-1.7.2.min.js"><\/script>')</script>
   <script>
-       var csfrData = {};
-       csfrData['<?php echo $this->security->get_csrf_token_name(); ?>']
+       var bonfire = {
+       		baseUrl:'<?php echo base_url(); ?>',
+       		path:function(path) {
+       			var base = bonfire.baseUrl;
+       			var base_arr = base.split("/");
+       			base_arr.pop();
+
+       			var path_array = path.split("/");
+       			if(!path_array[0]) {
+       				path_array.shift();
+       			}
+       			if(path_array[0] != base_arr[base_arr.length-1]) {
+       				path_array.unshift(base_arr.pop());
+       			}
+       			var url_array = base_arr.concat(path_array);
+       			return url_array.join('/');
+       		}
+       };
+       bonfire['<?php echo $this->security->get_csrf_token_name(); ?>']
                          = '<?php echo $this->security->get_csrf_hash(); ?>';
      </script>
 	<?php echo Assets::js(); ?>

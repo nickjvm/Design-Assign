@@ -35,7 +35,11 @@ $('.collapse').collapse();
 $(".summernote").summernote({
 	height:200,
 	onImageUpload: function(files, editor, welEditable) {
-	    sendFile(files[0], editor, welEditable);
+		var folder = welEditable.parent().prev().data("location");
+		if(!folder) {
+			folder = "pages";
+		}
+	    sendFile(files[0], editor, welEditable,folder);
 	},
 	toolbar: [
 	    //[groupname, [button list]]
@@ -53,20 +57,20 @@ $(".summernote").summernote({
 	    }
 	});
 
-function sendFile(file, editor, welEditable) {
+function sendFile(file, editor, welEditable,folder) {
       data = new FormData();
       data.append("image", file);
-      data.append("ci_csrf_token",csfrData['ci_csrf_token']);
+      data.append("ci_csrf_token",bonfire['ci_csrf_token']);
       $.ajax({
           data: data,
           type: "POST",
-          url: "/admin/content/pages/upload_image",
+          url: bonfire.path("admin/content/" + folder + "/upload_image"),
           cache: false,
           contentType: false,
           processData: false,
           success: function(url) {
           	var data = JSON.parse(url);
-              editor.insertImage(welEditable, "/assets/images/"+data.file_name);
+              editor.insertImage(welEditable, bonfire.path("assets/images/"+ folder + "/" +data.file_name));
           }
       });
   }

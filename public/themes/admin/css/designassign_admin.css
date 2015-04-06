@@ -19,3 +19,16 @@ ul.form-list input {
 .summernote {
   min-height: 300px;
 }
+input[type=checkbox] + label {
+  display: inline-block;
+}
+.form-horizontal .control-group > label {
+  display: inline-block;
+  max-width: 20%;
+}
+.form-horizontal .control-group > label + .controls {
+  width: 80%;
+  margin-left: 0;
+  vertical-align: top;
+  display: inline-block;
+}

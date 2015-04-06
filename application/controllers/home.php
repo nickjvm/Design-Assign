@@ -61,7 +61,19 @@ class Home extends CI_Controller
 		$this->set_current_user();
 
 		Template::set('applications_status', $this->settings_lib->item('ext.np_applications_status'));
+
+		$this->load->model('features/feature_model', NULL, TRUE);
+
+		$where = array(
+			'is_featured'=>1,
+			'deleted'=>0
+		);
+
+		$features = $this->feature_model->where($where)->order_by("created_on","desc")->limit(5)->find_all();
+
+		Template::set("features",$features);
 		Template::render();
+		
 	}//end index()
 
 

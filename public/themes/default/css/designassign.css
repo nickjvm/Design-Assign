@@ -1691,7 +1691,8 @@ input[type="checkbox"] {
     border-right: 1px solid #cccccc;
     padding-right: 2em;
   }
-  .main-content.no-sidebar {
+  .main-content.no-sidebar,
+  .main-content.no-border {
     border-right: 0;
   }
   .sidebar {
@@ -2017,4 +2018,7 @@ input[type="color"],
 }
 textarea {
   font-size: 15px;
+}
+.featured-project {
+  margin-bottom: 2em;
 }
