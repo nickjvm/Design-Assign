@@ -75,7 +75,7 @@
                   <p>Sorry, applications for volunteers are currently open.</p>
                 <?php } ?>
             <?php } else { ?> 
-                 <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?></p>
+                 <p>Unfortunately, this project has already received many qualified candidates. We encourage you to <?php print anchor("projects","apply for some of our other great opportunities");?>.</p>
             <?php } ?>
         <?php } ?>
 
